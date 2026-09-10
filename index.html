@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>PerfilStudio Neural Master Supreme</title>
+    <title>PerfilStudio Sincronizado AI</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -15,9 +15,9 @@
 
     <header class="bg-slate-900 border-b border-slate-800 p-4 sticky top-0 z-50 flex justify-between items-center shadow-lg">
         <h1 class="text-xs font-black bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent flex items-center gap-2">
-            <i class="fa-solid fa-dna text-pink-500"></i>PERFILSTUDIO SUPREME PRO
+            <i class="fa-solid fa-dna text-pink-500"></i>PERFILSTUDIO SYNC AI
         </h1>
-        <span class="text-[10px] font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-full">SISTEMA ATIVO 24/7</span>
+        <span class="text-[10px] font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-full">SINCRONIZADO</span>
     </header>
 
     <main class="flex-1 max-w-md w-full mx-auto p-4 pb-24 space-y-4">
@@ -32,13 +32,13 @@
             </button>
         </div>
 
-        <!-- Painel de Customização Absoluta -->
+        <!-- Painel de Customização Sincronizada -->
         <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 space-y-3">
             <h2 class="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
-                <i class="fa-solid fa-sliders text-pink-500"></i> Configuração Biológica Completa
+                <i class="fa-solid fa-sliders text-pink-500"></i> Matriz Biológica Sincronizada
             </h2>
 
-            <!-- Gênero (Com as duas opções principais e variações) -->
+            <!-- Gênero e Etnia -->
             <div class="grid grid-cols-2 gap-2">
                 <div>
                     <label class="text-[10px] text-slate-400 block mb-1 font-semibold">Identidade de Gênero</label>
@@ -46,7 +46,6 @@
                         <option value="feminino">Feminino</option>
                         <option value="masculino">Masculino</option>
                         <option value="nao-binario">Não-Binário</option>
-                        <option value="genero-fluido">Gênero Fluido</option>
                         <option value="trans-feminino">Trans Feminino</option>
                         <option value="trans-masculino">Trans Masculino</option>
                     </select>
@@ -54,13 +53,12 @@
                 <div>
                     <label class="text-[10px] text-slate-400 block mb-1 font-semibold">Etnia Global</label>
                     <select id="input-etnia" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200">
-                        <option value="Latina / Morena">Latina / Morena Clara</option>
-                        <option value="Branca / Europeia / Nórdica">Branca / Europeia / Nórdica</option>
-                        <option value="Negra / Afrodescendente">Negra / Afrodescendente</option>
-                        <option value="Asiática (Leste/Sul)">Asiática (Leste/Sul)</option>
-                        <option value="Mestiça / Indígena / Nativa">Mestiça / Indígena / Nativa</option>
-                        <option value="Oriente Médio / Árabe">Oriente Médio / Árabe</option>
-                        <option value="Parda / Mestiça Global">Parda / Mestiça Global</option>
+                        <option value="latina">Latina / Morena Clara</option>
+                        <option value="europeia">Branca / Europeia / Nórdica</option>
+                        <option value="negra">Negra / Afrodescendente</option>
+                        <option value="asiatica">Asiática</option>
+                        <option value="indigena">Mestiça / Indígena</option>
+                        <option value="oriente-medio">Oriente Médio / Árabe</option>
                     </select>
                 </div>
             </div>
@@ -71,33 +69,28 @@
                     <label class="text-[10px] text-slate-400 block mb-1 font-semibold">Profissão / Atuação</label>
                     <select id="input-prof" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200">
                         <option value="Astrólogo & Terapeuta Binaural">Astrólogo & Terapeuta Binaural</option>
-                        <option value="Arquiteta & Designer de Interiores">Arquiteta & Designer de Interiores</option>
-                        <option value="Desenvolvedor de Software Sênior">Desenvolvedor Tech Sênior</option>
-                        <option value="Modelo Internacional & Creator">Modelo Internacional & Creator</option>
+                        <option value="Arquiteta & Designer">Arquiteta & Designer</option>
+                        <option value="Desenvolvedor Tech Sênior">Desenvolvedor Tech Sênior</option>
+                        <option value="Modelo Internacional">Modelo Internacional</option>
                         <option value="Artista Plástica & Tatuadora">Artista Plástica & Tatuadora</option>
-                        <option value="Empresário & Investidor Venture">Empresário & Investidor</option>
-                        <option value="Médica Cirurgiã & Pesquisadora">Médica Cirurgiã & Pesquisadora</option>
-                        <option value="Psicanalista & Escritora">Psicanalista & Escritora</option>
-                        <option value="DJ & Produtora Musical">DJ & Produtora Musical</option>
-                        <option value="Advogada Criminalista">Advogada Criminalista</option>
+                        <option value="Empresário & Investidor">Empresário & Investidor</option>
+                        <option value="Médica Cirurgiã">Médica Cirurgiã</option>
                     </select>
                 </div>
                 <div>
                     <label class="text-[10px] text-slate-400 block mb-1 font-semibold">Tipo Físico</label>
                     <select id="input-fisico" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200">
-                        <option value="Atlético, Tonificado & Definido">Atlético, Tonificado & Definido</option>
-                        <option value="Magro, Esguio & Elegante">Magro, Esguio & Elegante</option>
-                        <option value="Curvilíneo, Marcante & Sofisticado">Curvilíneo, Marcante & Sofisticado</option>
-                        <option value="Musculoso, Robusto & Forte">Musculoso, Robusto & Forte</option>
-                        <option value="Petite, Delicado & Estilizado">Petite, Delicado & Estilizado</option>
-                        <option value="Plus Size Elegante & Encorpado">Plus Size Elegante & Encorpado</option>
+                        <option value="Atlético & Definido">Atlético & Definido</option>
+                        <option value="Magro & Esguio">Magro & Esguio</option>
+                        <option value="Curvilíneo & Sofisticado">Curvilíneo & Sofisticado</option>
+                        <option value="Musculoso & Robusto">Musculoso & Robusto</option>
                     </select>
                 </div>
             </div>
 
-            <!-- Formulário Astrológico com os 12 Signos para cada astro -->
+            <!-- Configuração Astrológica com os 12 Signos -->
             <div class="bg-slate-950/70 p-3 rounded-xl border border-slate-800 space-y-2">
-                <span class="text-[10px] font-bold text-pink-400 uppercase tracking-wider block"><i class="fa-solid fa-moon mr-1"></i> Configuração Astrológica (Mapa Natal com 12 Signos)</span>
+                <span class="text-[10px] font-bold text-pink-400 uppercase tracking-wider block"><i class="fa-solid fa-moon mr-1"></i> Mapa Astral (12 Signos)</span>
                 
                 <div class="grid grid-cols-3 gap-1.5">
                     <div>
@@ -142,24 +135,24 @@
                 </div>
             </div>
 
-            <!-- Botões de Formato de Selfie Dedicados (4:5 e 9:16) -->
+            <!-- Botões Sincronizados de Selfie por Formato -->
             <div class="space-y-1.5 pt-1">
-                <span class="text-[10px] text-slate-400 font-semibold uppercase block">Captura de Selfies & Formatos</span>
+                <span class="text-[10px] text-slate-400 font-semibold uppercase block">Captura de Selfie Sincronizada</span>
                 <div class="grid grid-cols-2 gap-2">
-                    <button onclick="gerarSelfieFormato('4:5')" class="bg-gradient-to-r from-pink-600 to-purple-600 hover:brightness-110 text-white font-bold py-2.5 rounded-xl shadow transition-all text-xs flex items-center justify-center gap-1.5">
+                    <button onclick="tirarSelfieSincronizada('4:5')" class="bg-gradient-to-r from-pink-600 to-purple-600 hover:brightness-110 text-white font-bold py-2.5 rounded-xl shadow transition-all text-xs flex items-center justify-center gap-1.5">
                         <i class="fa-solid fa-mobile-screen"></i> Tirar Selfie 4:5
                     </button>
-                    <button onclick="gerarSelfieFormato('9:16')" class="bg-gradient-to-r from-purple-600 to-indigo-600 hover:brightness-110 text-white font-bold py-2.5 rounded-xl shadow transition-all text-xs flex items-center justify-center gap-1.5">
+                    <button onclick="tirarSelfieSincronizada('9:16')" class="bg-gradient-to-r from-purple-600 to-indigo-600 hover:brightness-110 text-white font-bold py-2.5 rounded-xl shadow transition-all text-xs flex items-center justify-center gap-1.5">
                         <i class="fa-solid fa-film"></i> Tirar Selfie 9:16
                     </button>
                 </div>
-                <button onclick="gerarPerfilCompleto()" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold py-2.5 rounded-xl transition-all text-xs flex items-center justify-center gap-1.5">
-                    <i class="fa-solid fa-rotate"></i> Atualizar Identidade, Bio & Astrologia
+                <button onclick="sincronizarPerfilCompleto()" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold py-2.5 rounded-xl transition-all text-xs flex items-center justify-center gap-1.5">
+                    <i class="fa-solid fa-sync"></i> Sincronizar Tudo & Atualizar Perfil
                 </button>
             </div>
         </div>
 
-        <!-- Preview Visual Dinâmico -->
+        <!-- Preview Visual Sincronizado -->
         <div id="preview-container" class="space-y-4">
             <!-- Card Instagram -->
             <div id="card-instagram" class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl transition-all">
@@ -173,9 +166,9 @@
                     <i class="fa-solid fa-ellipsis text-slate-400 text-xs"></i>
                 </div>
                 
-                <!-- Imagem Fotorrealista com Formato Dinâmico (4:5 ou 9:16) -->
+                <!-- Imagem Fotorrealista Dinâmica -->
                 <div id="wrapper-foto-insta" class="relative aspect-[4/5] bg-slate-950 overflow-hidden transition-all duration-500">
-                    <img id="insta-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover transition-all duration-700" alt="Selfie Consistente">
+                    <img id="insta-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover transition-all duration-700" alt="Selfie Sincronizada">
                     <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[11px] text-slate-200 border border-white/10 flex items-center gap-1.5">
                         <i class="fa-solid fa-location-dot text-pink-500"></i> <span id="insta-loc-tag">São Paulo, SP (Jardins)</span>
                     </div>
@@ -184,12 +177,12 @@
                     </div>
                 </div>
 
-                <!-- Bio & Info com Astrologia Completa -->
+                <!-- Bio & Info -->
                 <div class="p-4 space-y-2.5">
                     <div class="flex items-center justify-around text-center text-xs border-b border-slate-800/80 pb-2.5">
-                        <div><span class="font-bold text-white block text-sm">94</span><span class="text-[10px] text-slate-400">posts</span></div>
-                        <div><span class="font-bold text-white block text-sm">42.8K</span><span class="text-[10px] text-slate-400">seguidores</span></div>
-                        <div><span class="font-bold text-white block text-sm">380</span><span class="text-[10px] text-slate-400">seguindo</span></div>
+                        <div><span class="font-bold text-white block text-sm">112</span><span class="text-[10px] text-slate-400">posts</span></div>
+                        <div><span class="font-bold text-white block text-sm">52.1K</span><span class="text-[10px] text-slate-400">seguidores</span></div>
+                        <div><span class="font-bold text-white block text-sm">490</span><span class="text-[10px] text-slate-400">seguindo</span></div>
                     </div>
                     <div>
                         <p id="insta-name" class="font-bold text-xs text-white">Clara Vargas</p>
@@ -201,12 +194,12 @@
             <!-- Card Tinder -->
             <div id="card-tinder" class="hidden bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl transition-all">
                 <div id="wrapper-foto-tinder" class="relative aspect-[4/5] bg-slate-950 transition-all duration-500">
-                    <img id="tinder-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover transition-all duration-700" alt="Tinder Foto">
+                    <img id="tinder-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover transition-all duration-700" alt="Tinder Foto Sincronizada">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-95"></div>
                     <div class="absolute bottom-4 left-4 right-4 text-white space-y-2">
                         <div class="flex items-baseline gap-2">
                             <h3 id="tinder-name-age" class="text-2xl font-black">Clara, 26</h3>
-                            <span class="text-emerald-400 text-[10px] font-semibold bg-emerald-500/20 px-2 py-0.5 rounded-full border border-emerald-500/30">Online agora</span>
+                            <span class="text-emerald-400 text-[10px] font-semibold bg-emerald-500/20 px-2 py-0.5 rounded-full border border-emerald-500/30">Ativa agora</span>
                         </div>
                         <p class="text-xs text-slate-300 flex items-center gap-1">
                             <i class="fa-solid fa-location-dot text-pink-500"></i> a 2 km de distância
@@ -219,10 +212,10 @@
             </div>
         </div>
 
-        <!-- Chat Conversacional Inteligente -->
+        <!-- Chat Conversacional Sincronizado -->
         <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 space-y-3 shadow-xl">
             <h3 class="text-xs font-bold text-slate-200 uppercase tracking-wider flex items-center gap-2">
-                <i class="fa-solid fa-comments text-pink-500"></i> Conversar com o Perfil Vivo
+                <i class="fa-solid fa-comments text-pink-500"></i> Conversar com o Perfil Sincronizado
             </h3>
             
             <div id="chat-box" class="h-48 bg-slate-950 border border-slate-800/80 rounded-xl p-3 overflow-y-auto chat-scroll space-y-2.5 text-xs">
@@ -233,7 +226,7 @@
             </div>
 
             <div class="flex gap-2">
-                <input type="text" id="chat-input" placeholder="Digite sua mensagem para conversar..." class="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5 text-xs text-slate-200 focus:outline-none focus:border-pink-500">
+                <input type="text" id="chat-input" placeholder="Digite sua mensagem..." class="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5 text-xs text-slate-200 focus:outline-none focus:border-pink-500">
                 <button onclick="enviarMensagemChat()" class="bg-gradient-to-r from-pink-600 to-purple-600 hover:brightness-110 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition-all flex items-center justify-center">
                     <i class="fa-solid fa-paper-plane"></i>
                 </button>
@@ -245,33 +238,76 @@
     <script>
         let currentPlatform = 'instagram';
 
-        const bancosVisuais = {
-            feminino: [
-                "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80",
-                "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1000&q=80",
-                "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1000&q=80"
-            ],
-            masculino: [
-                "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1000&q=80",
-                "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=1000&q=80",
-                "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1000&q=80"
-            ],
-            "nao-binario": [
-                "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=1000&q=80",
-                "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=1000&q=80"
-            ],
-            "genero-fluido": [
-                "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=1000&q=80",
-                "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80"
-            ],
-            "trans-feminino": [
-                "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1000&q=80",
-                "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80"
-            ],
-            "trans-masculino": [
-                "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1000&q=80",
-                "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1000&q=80"
-            ]
+        // Matriz Rigorosa Sincronizada por Etnia e Gênero
+        const bancosVisuaisRigorosos = {
+            feminino: {
+                latina: [
+                    "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1000&q=80"
+                ],
+                europeia: [
+                    "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=1000&q=80"
+                ],
+                negra: [
+                    "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1000&q=80"
+                ],
+                asiatica: [
+                    "https://images.unsplash.com/photo-1514626585111-9aa86183ac98?auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=1000&q=80"
+                ],
+                indigena: [
+                    "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=1000&q=80"
+                ],
+                "oriente-medio": [
+                    "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1000&q=80"
+                ]
+            },
+            masculino: {
+                latina: [
+                    "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1000&q=80"
+                ],
+                europeia: [
+                    "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=1000&q=80"
+                ],
+                negra: [
+                    "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1000&q=80"
+                ],
+                asiatica: [
+                    "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=1000&q=80"
+                ],
+                indigena: [
+                    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1000&q=80"
+                ],
+                "oriente-medio": [
+                    "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1000&q=80"
+                ]
+            },
+            "nao-binario": {
+                latina: ["https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=1000&q=80"],
+                europeia: ["https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=1000&q=80"],
+                negra: ["https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=1000&q=80"],
+                asiatica: ["https://images.unsplash.com/photo-1514626585111-9aa86183ac98?auto=format&fit=crop&w=1000&q=80"],
+                indigena: ["https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=1000&q=80"],
+                "oriente-medio": ["https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=1000&q=80"]
+            },
+            "trans-feminino": {
+                latina: ["https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1000&q=80"],
+                europeia: ["https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1000&q=80"],
+                negra: ["https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1000&q=80"],
+                asiatica: ["https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=1000&q=80"],
+                indigena: ["https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=1000&q=80"],
+                "oriente-medio": ["https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80"]
+            },
+            "trans-masculino": {
+                latina: ["https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1000&q=80"],
+                europeia: ["https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=1000&q=80"],
+                negra: ["https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1000&q=80"],
+                asiatica: ["https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=1000&q=80"],
+                indigena: ["https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1000&q=80"],
+                "oriente-medio": ["https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=1000&q=80"]
+            }
         };
 
         function switchPlatform(platform) {
@@ -294,11 +330,17 @@
             }
         }
 
-        function gerarSelfieFormato(formato) {
+        // Função de Captura de Selfie Sincronizada com Gênero, Etnia e Formato
+        function tirarSelfieSincronizada(formato) {
             const genero = document.getElementById('input-genero').value;
-            const listaFotos = bancosVisuais[genero] || bancosVisuais.feminino;
+            const etnia = document.getElementById('input-etnia').value;
+
+            // Busca na matriz rigorosa correspondente
+            const bancoGenero = bancosVisuaisRigorosos[genero] || bancosVisuaisRigorosos.feminino;
+            const listaFotos = bancoGenero[etnia] || bancoGenero.latina;
             const fotoEscolhida = listaFotos[Math.floor(Math.random() * listaFotos.length)];
 
+            // Atribui as imagens em tempo real
             document.getElementById('insta-img').src = fotoEscolhida;
             document.getElementById('tinder-img').src = fotoEscolhida;
             document.getElementById('insta-avatar-mini').src = fotoEscolhida;
@@ -307,18 +349,19 @@
             const wrapperTinder = document.getElementById('wrapper-foto-tinder');
             const badge = document.getElementById('badge-formato');
 
+            // Aplica perfeitamente as proporções 4:5 ou 9:16 escolhidas
             if(formato === '4:5') {
                 wrapperInsta.className = "relative aspect-[4/5] bg-slate-950 overflow-hidden transition-all duration-500";
                 wrapperTinder.className = "relative aspect-[4/5] bg-slate-950 overflow-hidden transition-all duration-500";
-                badge.innerText = "Formato 4:5";
+                badge.innerText = "Formato 4:5 (Feed)";
             } else {
                 wrapperInsta.className = "relative aspect-[9/16] bg-slate-950 overflow-hidden transition-all duration-500";
                 wrapperTinder.className = "relative aspect-[9/16] bg-slate-950 overflow-hidden transition-all duration-500";
-                badge.innerText = "Formato 9:16";
+                badge.innerText = "Formato 9:16 (Stories)";
             }
         }
 
-        function gerarPerfilCompleto() {
+        function sincronizarPerfilCompleto() {
             const genero = document.getElementById('input-genero').value;
             const prof = document.getElementById('input-prof').value;
             const sol = document.getElementById('astro-sol').value;
@@ -328,11 +371,14 @@
             const marte = document.getElementById('astro-marte').value;
             const lilith = document.getElementById('astro-lilith').value;
 
-            const nomes = (genero === 'masculino' || genero === 'trans-masculino') ? ["Lucas Siqueira", "Matheus Ribeiro", "Gabriel Duarte"] : ["Clara Vargas", "Helena Rossi", "Sofia Mendes"];
-            const nome = nomes[Math.floor(Math.random() * nomes.length)];
+            const nomesMasculinos = ["Lucas Siqueira", "Matheus Ribeiro", "Gabriel Duarte", "Rafael Moreira"];
+            const nomesFemininos = ["Clara Vargas", "Helena Rossi", "Sofia Mendes", "Valentina Cruz"];
+            
+            let nome = (genero === 'masculino' || genero === 'trans-masculino') ? nomesMasculinos[Math.floor(Math.random() * nomesMasculinos.length)] : nomesFemininos[Math.floor(Math.random() * nomesFemininos.length)];
             const handle = "@" + nome.toLowerCase().replace(" ", ".");
 
-            gerarSelfieFormato('4:5');
+            // Dispara a selfie sincronizada respeitando a etnia atual
+            tirarSelfieSincronizada('4:5');
 
             document.getElementById('insta-username').innerText = handle;
             document.getElementById('insta-name').innerText = nome;
@@ -342,7 +388,7 @@
             document.getElementById('tinder-bio').innerText = `Atuando como ${prof}. Vênus em ${venus}. Buscando conexões profundas e magnéticas. ✨`;
             document.getElementById('chat-char-name').innerText = nome + ":";
             
-            adicionarMensagemChat(nome, `Olá! Meu nome é ${nome}, com Sol em ${sol} e Vênus em ${venus}. Como posso te ajudar a desvendar os mistérios de hoje?`);
+            adicionarMensagemChat(nome, `Olá! Sou ${nome}, com Sol em ${sol} e Vênus em ${venus}. É um prazer trocar essa energia profunda com você.`);
         }
 
         function enviarMensagemChat() {
