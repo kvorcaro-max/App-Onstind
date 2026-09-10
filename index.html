@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>PerfilStudio AI Biotipo & Idade Real</title>
+    <title>PerfilStudio AI - Renderização Paramétrica Real-Time</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -15,9 +15,9 @@
 
     <header class="bg-slate-900 border-b border-slate-800 p-4 sticky top-0 z-50 flex justify-between items-center shadow-lg">
         <h1 class="text-xs font-black bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent flex items-center gap-2">
-            <i class="fa-solid fa-user-gear text-pink-500"></i>PERFILSTUDIO BIOTIPO & IDADE SYNC
+            <i class="fa-solid fa-wand-magic-sparkles text-pink-500"></i>PERFILSTUDIO GENERATOR REAL-TIME
         </h1>
-        <span class="text-[10px] font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-full">TOTALMENTE CORRIGIDO</span>
+        <span class="text-[10px] font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-full">GERAÇÃO PARAMÉTRICA ATIVA</span>
     </header>
 
     <main class="flex-1 max-w-md w-full mx-auto p-4 pb-24 space-y-4">
@@ -32,22 +32,19 @@
             </button>
         </div>
 
-        <!-- Painel de Customização com Idade e Biotipos Reais -->
+        <!-- Painel de Customização com Idade, Biotipo e Gênero -->
         <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 space-y-3">
             <h2 class="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
-                <i class="fa-solid fa-sliders text-pink-500"></i> Parâmetros Biológicos, Idade & Biotipo
+                <i class="fa-solid fa-sliders text-pink-500"></i> Parâmetros para Geração Algorítmica
             </h2>
 
-            <!-- Gênero e Idade -->
             <div class="grid grid-cols-2 gap-2">
                 <div>
                     <label class="text-[10px] text-slate-400 block mb-1 font-semibold">Identidade de Gênero</label>
                     <select id="input-genero" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200">
-                        <option value="feminino">Feminino</option>
-                        <option value="masculino">Masculino</option>
-                        <option value="nao-binario">Não-Binário / Fluido</option>
-                        <option value="trans-feminino">Trans Feminino</option>
-                        <option value="trans-masculino">Trans Masculino</option>
+                        <option value="female">Feminino</option>
+                        <option value="male">Masculino</option>
+                        <option value="human">Não-Binário / Fluido</option>
                     </select>
                 </div>
                 <div>
@@ -56,30 +53,27 @@
                 </div>
             </div>
 
-            <!-- Etnia e Tipo Físico (Com suporte real a Plus Size) -->
             <div class="grid grid-cols-2 gap-2">
                 <div>
-                    <label class="text-[10px] text-slate-400 block mb-1 font-semibold">Etnia Global</label>
+                    <label class="text-[10px] text-slate-400 block mb-1 font-semibold">Etnia / Tom de Pele</label>
                     <select id="input-etnia" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200">
-                        <option value="latina">Latina / Morena</option>
-                        <option value="europeia">Branca / Europeia</option>
-                        <option value="negra">Negra / Afro</option>
-                        <option value="asiatica">Asiática</option>
+                        <option value="light">Morena / Clara (Light)</option>
+                        <option value="tanned">Parda / Bronzeada (Tanned)</option>
+                        <option value="dark">Negra / Escura (Dark)</option>
+                        <option value="pale">Nórdica / Pálida (Pale)</option>
                     </select>
                 </div>
                 <div>
                     <label class="text-[10px] text-slate-400 block mb-1 font-semibold">Tipo Físico / Biotipo</label>
                     <select id="input-fisico" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200">
-                        <option value="plus-size">Plus Size Elegante & Encorpado</option>
+                        <option value="plus-size">Plus Size (Encorpado)</option>
                         <option value="atletico">Atlético & Definido</option>
                         <option value="magro">Magro & Esguio</option>
-                        <option value="curvilineo">Curvilíneo & Sofisticado</option>
-                        <option value="musculoso">Musculoso & Robusto</option>
+                        <option value="curvilineo">Curvilíneo & Marcante</option>
                     </select>
                 </div>
             </div>
 
-            <!-- Profissão -->
             <div>
                 <label class="text-[10px] text-slate-400 block mb-1 font-semibold">Profissão / Atuação</label>
                 <select id="input-prof" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200">
@@ -87,7 +81,6 @@
                     <option value="Arquiteta & Designer">Arquiteta & Designer</option>
                     <option value="Desenvolvedor Tech Sênior">Desenvolvedor Tech Sênior</option>
                     <option value="Modelo Internacional">Modelo Internacional</option>
-                    <option value="Artista Plástica">Artista Plástica</option>
                 </select>
             </div>
 
@@ -115,63 +108,42 @@
                         </select>
                     </div>
                 </div>
-
-                <div class="grid grid-cols-3 gap-1.5">
-                    <div>
-                        <label class="text-[9px] text-slate-400 block">Vênus</label>
-                        <select id="astro-venus" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-1.5 text-[10px] text-slate-200">
-                            <option>Áries</option><option>Touro</option><option>Gêmeos</option><option>Câncer</option><option>Leão</option><option>Virgem</option><option selected>Libra</option><option>Escorpião</option><option>Sagitário</option><option>Capricórnio</option><option>Aquário</option><option>Peixes</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="text-[9px] text-slate-400 block">Marte</label>
-                        <select id="astro-marte" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-1.5 text-[10px] text-slate-200">
-                            <option>Áries</option><option selected>Touro</option><option>Gêmeos</option><option>Câncer</option><option>Leão</option><option>Virgem</option><option>Libra</option><option>Escorpião</option><option>Sagitário</option><option>Capricórnio</option><option>Aquário</option><option>Peixes</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="text-[9px] text-slate-400 block">Lilith</label>
-                        <select id="astro-lilith" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-1.5 text-[10px] text-slate-200">
-                            <option>Áries</option><option>Touro</option><option>Gêmeos</option><option>Câncer</option><option selected>Leão</option><option>Virgem</option><option>Libra</option><option>Escorpião</option><option>Sagitário</option><option>Capricórnio</option><option>Aquário</option><option>Peixes</option>
-                        </select>
-                    </div>
-                </div>
             </div>
 
-            <!-- Botões de Formato (4:5 e 9:16) Sincronizados -->
+            <!-- Botões de Formato (4:5 e 9:16) -->
             <div class="space-y-1.5 pt-1">
-                <span class="text-[10px] text-slate-400 font-semibold uppercase block">Captura de Selfie Fotorrealista por Biotipo</span>
+                <span class="text-[10px] text-slate-400 font-semibold uppercase block">Gerar Foto em Tempo Real por Parâmetro</span>
                 <div class="grid grid-cols-2 gap-2">
-                    <button onclick="gerarSelfieBiotipo('4:5')" class="bg-gradient-to-r from-pink-600 to-purple-600 hover:brightness-110 text-white font-bold py-2.5 rounded-xl shadow transition-all text-xs flex items-center justify-center gap-1.5">
-                        <i class="fa-solid fa-mobile-screen"></i> Tirar Selfie 4:5
+                    <button onclick="gerarFotoGeradaRealTime('4:5')" class="bg-gradient-to-r from-pink-600 to-purple-600 hover:brightness-110 text-white font-bold py-2.5 rounded-xl shadow transition-all text-xs flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-mobile-screen"></i> Gerar Foto 4:5
                     </button>
-                    <button onclick="gerarSelfieBiotipo('9:16')" class="bg-gradient-to-r from-purple-600 to-indigo-600 hover:brightness-110 text-white font-bold py-2.5 rounded-xl shadow transition-all text-xs flex items-center justify-center gap-1.5">
-                        <i class="fa-solid fa-film"></i> Tirar Selfie 9:16
+                    <button onclick="gerarFotoGeradaRealTime('9:16')" class="bg-gradient-to-r from-purple-600 to-indigo-600 hover:brightness-110 text-white font-bold py-2.5 rounded-xl shadow transition-all text-xs flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-film"></i> Gerar Foto 9:16
                     </button>
                 </div>
-                <button onclick="sincronizarTudo()" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold py-2.5 rounded-xl transition-all text-xs flex items-center justify-center gap-1.5">
-                    <i class="fa-solid fa-sync"></i> Sincronizar Tudo & Atualizar Perfil
+                <button onclick="sincronizarTudoGerado()" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold py-2.5 rounded-xl transition-all text-xs flex items-center justify-center gap-1.5">
+                    <i class="fa-solid fa-sync"></i> Gerar Nova Identidade & Sincronizar Tudo
                 </button>
             </div>
         </div>
 
-        <!-- Preview Visual -->
+        <!-- Preview Visual Gerado -->
         <div id="preview-container" class="space-y-4">
             <!-- Card Instagram -->
             <div id="card-instagram" class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl transition-all">
                 <div class="p-3 border-b border-slate-800 flex justify-between items-center bg-slate-950/40">
                     <div class="flex items-center gap-2">
                         <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-yellow-500 to-pink-500 p-[2px]">
-                            <img id="insta-avatar-mini" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover rounded-full">
+                            <img id="insta-avatar-mini" src="" class="w-full h-full object-cover rounded-full bg-slate-950">
                         </div>
                         <span id="insta-username" class="font-bold text-xs tracking-tight text-slate-100">@clara.vargas</span>
                     </div>
                     <i class="fa-solid fa-ellipsis text-slate-400 text-xs"></i>
                 </div>
                 
-                <!-- Imagem Fotorrealista por Biotipo -->
-                <div id="wrapper-foto-insta" class="relative aspect-[4/5] bg-slate-950 overflow-hidden transition-all duration-500">
-                    <img id="insta-img" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover transition-all duration-700" alt="Selfie Biotipo">
+                <!-- Imagem Gerada Parametricamente -->
+                <div id="wrapper-foto-insta" class="relative aspect-[4/5] bg-slate-950 overflow-hidden transition-all duration-500 flex items-center justify-center">
+                    <img id="insta-img" src="" class="w-full h-full object-cover transition-all duration-700" alt="Foto Gerada">
                     <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[11px] text-slate-200 border border-white/10 flex items-center gap-1.5">
                         <i class="fa-solid fa-location-dot text-pink-500"></i> <span id="insta-loc-tag">São Paulo, SP</span>
                     </div>
@@ -180,24 +152,24 @@
                     </div>
                 </div>
 
-                <!-- Bio & Info com Idade -->
+                <!-- Bio & Info -->
                 <div class="p-4 space-y-2.5">
                     <div class="flex items-center justify-around text-center text-xs border-b border-slate-800/80 pb-2.5">
-                        <div><span class="font-bold text-white block text-sm">84</span><span class="text-[10px] text-slate-400">posts</span></div>
-                        <div><span class="font-bold text-white block text-sm">39.4K</span><span class="text-[10px] text-slate-400">seguidores</span></div>
-                        <div><span class="font-bold text-white block text-sm">410</span><span class="text-[10px] text-slate-400">seguindo</span></div>
+                        <div><span class="font-bold text-white block text-sm">96</span><span class="text-[10px] text-slate-400">posts</span></div>
+                        <div><span class="font-bold text-white block text-sm">41.2K</span><span class="text-[10px] text-slate-400">seguidores</span></div>
+                        <div><span class="font-bold text-white block text-sm">390</span><span class="text-[10px] text-slate-400">seguindo</span></div>
                     </div>
                     <div>
                         <p id="insta-name" class="font-bold text-xs text-white">Clara Vargas, <span id="insta-idade-txt">27</span></p>
-                        <p id="insta-bio" class="text-xs text-slate-300 mt-1 whitespace-pre-line leading-relaxed">Astróloga & Terapeuta Binaural 🔮✨<br>Sol em Escorpião | Lua em Peixes | Asc em Áries<br>Vênus em Libra | Marte em Touro | Lilith em Leão</p>
+                        <p id="insta-bio" class="text-xs text-slate-300 mt-1 whitespace-pre-line leading-relaxed">Astróloga & Terapeuta Binaural 🔮✨<br>Sol em Escorpião | Lua em Peixes | Asc em Áries</p>
                     </div>
                 </div>
             </div>
 
             <!-- Card Tinder -->
             <div id="card-tinder" class="hidden bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl transition-all">
-                <div id="wrapper-foto-tinder" class="relative aspect-[4/5] bg-slate-950 transition-all duration-500">
-                    <img id="tinder-img" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover transition-all duration-700" alt="Tinder Biotipo">
+                <div id="wrapper-foto-tinder" class="relative aspect-[4/5] bg-slate-950 transition-all duration-500 flex items-center justify-center">
+                    <img id="tinder-img" src="" class="w-full h-full object-cover transition-all duration-700" alt="Tinder Foto Gerada">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-95"></div>
                     <div class="absolute bottom-4 left-4 right-4 text-white space-y-2">
                         <div class="flex items-baseline gap-2">
@@ -215,16 +187,16 @@
             </div>
         </div>
 
-        <!-- Chat Conversacional Inteligente -->
+        <!-- Chat Conversacional -->
         <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 space-y-3 shadow-xl">
             <h3 class="text-xs font-bold text-slate-200 uppercase tracking-wider flex items-center gap-2">
-                <i class="fa-solid fa-comments text-pink-500"></i> Conversar com o Perfil Sincronizado
+                <i class="fa-solid fa-comments text-pink-500"></i> Conversar com a IA Gerada
             </h3>
             
             <div id="chat-box" class="h-48 bg-slate-950 border border-slate-800/80 rounded-xl p-3 overflow-y-auto chat-scroll space-y-2.5 text-xs">
                 <div class="bg-slate-900 p-2.5 rounded-xl border border-slate-800 text-slate-300">
                     <span class="font-bold text-pink-400 block mb-0.5" id="chat-char-name">Clara Vargas:</span>
-                    Olá! Sinto a energia de Escorpião e Vênus em Libra pulsando forte por aqui. O que gostaria de explorar comigo? ✨
+                    Olá! Minha imagem e mapa astral foram gerados sob medida. O que deseja explorar? ✨
                 </div>
             </div>
 
@@ -240,67 +212,6 @@
 
     <script>
         let currentPlatform = 'instagram';
-
-        // Matriz Rigorosa Mapeando Biotipos Reais (Incluindo Plus Size Dedicado)
-        const bancosBiotiposReais = {
-            feminino: {
-                "plus-size": [
-                    "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1000&q=80",
-                    "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=1000&q=80"
-                ],
-                atletico: [
-                    "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80",
-                    "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1000&q=80"
-                ],
-                magro: [
-                    "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1000&q=80"
-                ],
-                curvilineo: [
-                    "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1000&q=80"
-                ],
-                musculoso: [
-                    "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=1000&q=80"
-                ]
-            },
-            masculino: {
-                "plus-size": [
-                    "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=1000&q=80"
-                ],
-                atletico: [
-                    "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1000&q=80"
-                ],
-                magro: [
-                    "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=1000&q=80"
-                ],
-                curvilineo: [
-                    "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1000&q=80"
-                ],
-                musculoso: [
-                    "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=1000&q=80"
-                ]
-            },
-            "nao-binario": {
-                "plus-size": ["https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=1000&q=80"],
-                atletico: ["https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=1000&q=80"],
-                magro: ["https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=1000&q=80"],
-                curvilineo: ["https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=1000&q=80"],
-                musculoso: ["https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=1000&q=80"]
-            },
-            "trans-feminino": {
-                "plus-size": ["https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1000&q=80"],
-                atletico: ["https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1000&q=80"],
-                magro: ["https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1000&q=80"],
-                curvilineo: ["https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1000&q=80"],
-                musculoso: ["https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1000&q=80"]
-            },
-            "trans-masculino": {
-                "plus-size": ["https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=1000&q=80"],
-                atletico: ["https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1000&q=80"],
-                magro: ["https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=1000&q=80"],
-                curvilineo: ["https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1000&q=80"],
-                musculoso: ["https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=1000&q=80"]
-            }
-        };
 
         function switchPlatform(platform) {
             currentPlatform = platform;
@@ -322,37 +233,41 @@
             }
         }
 
-        function gerarSelfieBiotipo(formato) {
+        // Motor de Geração Paramétrica Real-Time
+        function gerarFotoGeradaRealTime(formato) {
             const genero = document.getElementById('input-genero').value;
+            const etnia = document.getElementById('input-etnia').value;
             const fisico = document.getElementById('input-fisico').value;
+            const idade = document.getElementById('input-idade').value;
+            const seedParametro = `${genero}-${etnia}-${fisico}-${idade}-${Math.random()}`;
 
-            const bancoGenero = bancosBiotiposReais[genero] || bancosBiotiposReais.feminino;
-            const listaFotos = bancoGenero[fisico] || bancoGenero.atletico;
-            const fotoEscolhida = listaFotos[Math.floor(Math.random() * listaFotos.length)];
+            // Constrói URL algorítmica paramétrica no DiceBear 7.x com os seletores exatos
+            const urlGerada = `https://api.dicebear.com/7.x/personas/svg?seed=${seedParametro}&skinColor=${etnia}&backgroundColor=0f172a&radius=10`;
 
-            document.getElementById('insta-img').src = fotoEscolhida;
-            document.getElementById('tinder-img').src = fotoEscolhida;
-            document.getElementById('insta-avatar-mini').src = fotoEscolhida;
+            document.getElementById('insta-img').src = urlGerada;
+            document.getElementById('tinder-img').src = urlGerada;
+            document.getElementById('insta-avatar-mini').src = urlGerada;
 
             const wrapperInsta = document.getElementById('wrapper-foto-insta');
             const wrapperTinder = document.getElementById('wrapper-foto-tinder');
             const badge = document.getElementById('badge-formato');
 
             if(formato === '4:5') {
-                wrapperInsta.className = "relative aspect-[4/5] bg-slate-950 overflow-hidden transition-all duration-500";
-                wrapperTinder.className = "relative aspect-[4/5] bg-slate-950 overflow-hidden transition-all duration-500";
+                wrapperInsta.className = "relative aspect-[4/5] bg-slate-950 overflow-hidden transition-all duration-500 flex items-center justify-center";
+                wrapperTinder.className = "relative aspect-[4/5] bg-slate-950 overflow-hidden transition-all duration-500 flex items-center justify-center";
                 badge.innerText = "Formato 4:5 (Feed)";
             } else {
-                wrapperInsta.className = "relative aspect-[9/16] bg-slate-950 overflow-hidden transition-all duration-500";
-                wrapperTinder.className = "relative aspect-[9/16] bg-slate-950 overflow-hidden transition-all duration-500";
+                wrapperInsta.className = "relative aspect-[9/16] bg-slate-950 overflow-hidden transition-all duration-500 flex items-center justify-center";
+                wrapperTinder.className = "relative aspect-[9/16] bg-slate-950 overflow-hidden transition-all duration-500 flex items-center justify-center";
                 badge.innerText = "Formato 9:16 (Stories)";
             }
         }
 
-        function sincronizarTudo() {
+        function sincronizarTudoGerado() {
             const genero = document.getElementById('input-genero').value;
             const idade = document.getElementById('input-idade').value;
             const prof = document.getElementById('input-prof').value;
+            const biotipo = document.getElementById('input-fisico').value;
             const sol = document.getElementById('astro-sol').value;
             const lua = document.getElementById('astro-lua').value;
             const asc = document.getElementById('astro-asc').value;
@@ -360,29 +275,28 @@
             const marte = document.getElementById('astro-marte').value;
             const lilith = document.getElementById('astro-lilith').value;
 
-            const nomesMasculinos = ["Lucas Siqueira", "Matheus Ribeiro", "Gabriel Duarte", "Rafael Moreira"];
-            const nomesFemininos = ["Clara Vargas", "Helena Rossi", "Sofia Mendes", "Valentina Cruz"];
-            const nomesNaoBinarios = ["Ariel Moon", "Kaelen Vianna", "Zoe Alencar"];
+            const nomesMasculinos = ["Lucas Siqueira", "Matheus Ribeiro", "Gabriel Duarte"];
+            const nomesFemininos = ["Clara Vargas", "Helena Rossi", "Sofia Mendes"];
+            const nomesHumanos = ["Ariel Moon", "Kaelen Vianna", "Zoe Alencar"];
 
             let nomesArr = nomesFemininos;
-            if(genero === 'masculino' || genero === 'trans-masculino') nomesArr = nomesMasculinos;
-            if(genero === 'nao-binario') nomesArr = nomesNaoBinarios;
+            if(genero === 'male') nomesArr = nomesMasculinos;
+            if(genero === 'human') nomesArr = nomesHumanos;
 
             const nome = nomesArr[Math.floor(Math.random() * nomesArr.length)];
             const handle = "@" + nome.toLowerCase().replace(" ", ".");
 
-            // Sincroniza a selfie exata com o biotipo selecionado
-            gerarSelfieBiotipo('4:5');
+            gerarFotoGeradaRealTime('4:5');
 
             document.getElementById('insta-username').innerText = handle;
             document.getElementById('insta-name').innerHTML = `${nome}, <span id="insta-idade-txt">${idade}</span>`;
-            document.getElementById('insta-bio').innerText = `${prof} 🔮✨\nSol em ${sol} | Lua em ${lua} | Asc em ${asc}\nVênus em ${venus} | Marte em ${marte} | Lilith em ${lilith}`;
+            document.getElementById('insta-bio').innerText = `${prof} 🔮✨\nBiotipo: ${biotipo.toUpperCase()}\nSol em ${sol} | Lua em ${lua} | Asc em ${asc}\nVênus em ${venus}`;
             
             document.getElementById('tinder-name-age').innerText = `${nome.split(' ')[0]}, ${idade}`;
-            document.getElementById('tinder-bio').innerText = `Atuando como ${prof}. Vênus em ${venus}. Conexões magnéticas e profundas. ✨`;
+            document.getElementById('tinder-bio').innerText = `Atuando como ${prof}. Biotipo: ${biotipo}. Vênus em ${venus}. Conexões magnéticas. ✨`;
             document.getElementById('chat-char-name').innerText = nome + ":";
             
-            adicionarMensagemChat(nome, `Olá! Sou ${nome}, com ${idade} anos, Sol em ${sol} e Vênus em ${venus}. É um prazer trocar essa energia com você.`);
+            adicionarMensagemChat(nome, `Olá! Sou ${nome}, de ${idade} anos, gerada com biotipo ${biotipo}, Sol em ${sol} e Vênus em ${venus}. Como posso te ajudar?`);
         }
 
         function enviarMensagemChat() {
@@ -397,8 +311,8 @@
             setTimeout(() => {
                 const venus = document.getElementById('astro-venus').value;
                 const respostas = [
-                    `Analisando sua mensagem sob a influência da minha Vênus em ${venus}, percebo uma sintonia magnética muito forte.`,
-                    `Fascinante! Como ${document.getElementById('input-prof').value.toLowerCase()}, vejo que nossas frequências combinam nos pontos mais sutis.`,
+                    `Analisando sua mensagem sob a influência da minha Vênus em ${venus}, percebo uma sintonia magnética direta.`,
+                    `Fascinante! Como ${document.getElementById('input-prof').value.toLowerCase()}, vejo que nossas frequências combinam perfeitamente.`,
                     `Adorei sua abordagem. Vamos aprofundar essa troca energética? ✨`
                 ];
                 adicionarMensagemChat(nomeChar, respostas[Math.floor(Math.random() * respostas.length)]);
@@ -413,6 +327,11 @@
             chatBox.appendChild(div);
             chatBox.scrollTop = chatBox.scrollHeight;
         }
+
+        // Inicialização automática ao abrir
+        window.onload = function() {
+            sincronizarTudoGerado();
+        };
     </script>
 </body>
 </html>
