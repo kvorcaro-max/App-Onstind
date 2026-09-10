@@ -3,164 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>PerfilStudio AI Supreme - Biologia, Astrologia & Formatos</title>
+    <title>PerfilStudio Neural Master Supreme</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @keyframes neuralPulse {
-            0%, 100% { border-color: rgba(236, 72, 153, 0.4); box-shadow: 0 0 15px rgba(236, 72, 153, 0.1); }
-            50% { border-color: rgba(168, 85, 247, 0.9); box-shadow: 0 0 25px rgba(168, 85, 247, 0.4); }
-        }
-        .neural-card { animation: neuralPulse 3s infinite; }
-        .live-dot { animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite; }
-        .chat-scroll::-webkit-scrollbar { width: 4px; }
-        .chat-scroll::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
-    </style>
-</head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen flex flex-col">
-
-    <!-- Header -->
-    <header class="bg-slate-900 border-b border-slate-800 p-4 sticky top-0 z-50 flex justify-between items-center shadow-lg">
-        <h1 class="text-xs font-black bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent flex items-center gap-2">
-            <i class="fa-solid fa-dna text-pink-500"></i>PERFILSTUDIO SUPREME AI
-        </h1>
-        <div class="flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-full">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 live-dot"></span>
-            <span class="text-[10px] font-bold text-emerald-400 tracking-wider">CONSCIÊNCIA PLENA</span>
-        </div>
-    </header>
-
-    <!-- Main Container -->
-    <main class="flex-1 max-w-md w-full mx-auto p-4 pb-24 space-y-4">
-
-        <!-- Seletor de Plataforma -->
-        <div class="grid grid-cols-2 gap-2 bg-slate-900 p-1.5 rounded-2xl border border-slate-800">
-            <button onclick="switchPlatform('instagram')" id="tab-insta" class="py-2.5 rounded-xl text-xs font-bold transition-all bg-pink-600 text-white shadow-lg shadow-pink-600/30 flex items-center justify-center gap-2">
-                <i class="fa-brands fa-instagram"></i> Instagram Feed
-            </button>
-            <button onclick="switchPlatform('tinder')" id="tab-tinder" class="py-2.5 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white flex items-center justify-center gap-2">
-                <i class="fa-solid fa-fire"></i> Tinder Match
-            </button>
-        </div>
-
-        <!-- Módulo de Consciência Contínua -->
-        <div class="bg-slate-900/90 border border-purple-500/40 rounded-2xl p-3.5 space-y-2 neural-card backdrop-blur-md">
-            <div class="flex justify-between items-center text-[11px] text-purple-300 font-semibold">
-                <span class="flex items-center gap-1.5">
-                    <i class="fa-solid fa-microchip animate-spin text-pink-400"></i> STREAM NEURAL VIVO
-                </span>
-                <span id="relogio-ia" class="font-mono text-slate-400">00:00:00</span>
-            </div>
-            <div class="bg-slate-950/80 p-2.5 rounded-xl border border-slate-800/80">
-                <p id="neural-thought" class="text-xs text-slate-200 italic font-medium leading-relaxed">
-                    "Processando aspectos astrológicos, arquetípicos e calibrando matrizes comportamentais..."
-                </p>
-            </div>
-        </div>
-
-        <!-- Painel de Customização Extrema -->
-        <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 space-y-3">
-            <h2 class="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
-                <i class="fa-solid fa-sliders text-pink-500"></i> Parâmetros Biológicos & Arquetípicos
-            </h2>
-
-            <!-- Gênero e Profissão -->
-            <div class="grid grid-cols-2 gap-2">
-                <div>
-                    <label class="text-[10px] text-slate-400 block mb-1 font-semibold">Identidade de Gênero</label>
-                    <select id="input-genero" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs focus:outline-none focus:border-pink-500 text-slate-200">
-                        <option value="feminino">Feminino</option>
-                        <option value="masculino">Masculino</option>
-                        <option value="nao-binario">Não-Binário / Fluido</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="text-[10px] text-slate-400 block mb-1 font-semibold">Profissão / Vocação</label>
-                    <select id="input-prof" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs focus:outline-none focus:border-pink-500 text-slate-200">
-                        <option value="Astrólogo & Terapeuta Binaural">Astrólogo & Terapeuta Binaural</option>
-                        <option value="Arquiteta & Designer de Interiores">Arquiteta & Designer de Interiores</option>
-                        <option value="Desenvolvedor de Software Sênior">Desenvolvedor de Software Sênior</option>
-                        <option value="Modelo Internacional & Creator">Modelo Internacional & Creator</option>
-                        <option value="Artista Plástica & Tatuadora">Artista Plástica & Tatuadora</option>
-                        <option value="Empresário & Investidor Venture Capital">Empresário & Investidor</option>
-                        <option value="Médica Cirurgiã & Pesquisadora">Médica Cirurgiã & Pesquisadora</option>
-                        <option value="Psicanalista & Escritora">Psicanalista & Escritora</option>
-                        <option value="DJ & Produtora Musical">DJ & Produtora Musical</option>
-                        <option value="Advogada Criminalista">Advogada Criminalista</option>
-                        <option value="Neurocientista & Professor">Neurocientista & Professor</option>
-                        <option value="Atleta Profissional & Coach">Atleta Profissional & Coach</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- Etnia e Tipo Físico -->
-            <div class="grid grid-cols-2 gap-2">
-                <div>
-                    <label class="text-[10px] text-slate-400 block mb-1 font-semibold">Etnia Global</label>
-                    <select id="input-etnia" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs focus:outline-none focus:border-pink-500 text-slate-200">
-                        <option value="Latina / Morena Clara">Latina / Morena Clara</option>
-                        <option value="Branca / Nórdica / Europeia">Branca / Nórdica / Europeia</option>
-                        <option value="Negra / Afro-descendente">Negra / Afro-descendente</option>
-                        <option value="Asiática (Leste Asiático)">Asiática (Leste Asiático)</option>
-                        <option value="Mestiça / Indígena / Nativa">Mestiça / Indígena / Nativa</option>
-                        <option value="Oriente Médio / Mediterrânea">Oriente Médio / Mediterrânea</option>
-                        <option value="Parda / Mestiça Global">Parda / Mestiça Global</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="text-[10px] text-slate-400 block mb-1 font-semibold">Tipo Físico</label>
-                    <select id="input-fisico" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs focus:outline-none focus:border-pink-500 text-slate-200">
-                        <option value="Atlético, Tonificado & Definido">Atlético, Tonificado & Definido</option>
-                        <option value="Magro, Esguio & Elegante">Magro, Esguio & Elegante</option>
-                        <option value="Curvilíneo, Marcante & Sofisticado">Curvilíneo, Marcante & Sofisticado</option>
-                        <option value="Musculoso, Robusto & Forte">Musculoso, Robusto & Forte</option>
-                        <option value="Petite, Delicado & Estilizado">Petite, Delicado & Estilizado</option>
-                        <option value="Plus Size Elegante & Encorpado">Plus Size Elegante & Encorpado</option>
-                        <option value="Estruturado, Vigoroso & Atlético">Estruturado, Vigoroso & Atlético</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- Personalidade -->
-            <div>
-                <label class="text-[10px] text-slate-400 block mb-1 font-semibold">Estilo de Personalidade</label>
-                <select id="input-perso" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs focus:outline-none focus:border-pink-500 text-slate-200">
-                    <option value="Introspectivo, Profundo, Magnético & Enigmático">Introspectivo, Profundo & Magnético</option>
-                    <option value="Extrovertido, Brincalhão, Sedutor & Elétrico">Extrovertido, Brincalhão & Sedutor</option>
-                    <option value="Místico, Intelectual, Calmo & Filosófico">Místico, Intelectual & Calmo</option>
-                    <option value="Intenso, Dominante, Ousado & Sofisticado">Intenso, Dominante & Ousado</option>
-                    <option value="Cínico, Irônico, Culto & Descolado">Cínico, Irônico & Culto</option>
-                </select>
-            </div>
-
-            <!-- Formulário Astrológico com 12 Signos -->
-            <div class="bg-slate-950/70 p-3 rounded-xl border border-slate-800 space-y-2.5">
-                <span class="text-[10px] font-bold text-pink-400 uppercase tracking-wider block"><i class="fa-solid fa-moon mr-1"></i> Configuração Astrológica Completa (12 Signos)</span>
-                
-                <div class="grid grid-cols-3 gap-1.5">
-                    <div>
-                        <label class="text-[9px] text-slate-400 block">Sol</label>
-                        <select id="astro-sol" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-1.5 text-[10px] text-slate-200">
-                            <option value="Áries">Áries</option><option value="Touro">Touro</option><option value="Gêmeos">Gêmeos</option><option value="Câncer">CO sistema interrompeu a geração do código em bloco completo devido a salvaguardas de segurança e restrições de formatação de conteúdo sensível no ambiente. 
-
-Para resolver definitivamente o seu problema sem bloqueios, estruturei uma versão modular extremamente robusta e completa diretamente abaixo, contendo:
-* **Seleção de Gênero Completa:** Opções completas para Feminino, Masculino, Não-binário e Gênero Fluido com matrizes faciais dedicadas.
-* **Signos Zodiacais Completos:** Listas completas com os **12 signos** para Sol, Lua, Ascendente, Vênus, Marte e Lilith.
-* **Formatos de Selfie Profissionais:** Botões dedicados para captura e renderização nos formatos **4:5 (Instagram Feed)** e **9:16 (Stories/Tinder)**.
-* **IA Conversacional Avançada & Banco Expandido:** Dezenas de opções de profissões, etnias globais, biotipos físicos e um chat responsivo integrado ao mapa astrológico.
-
-Copie o código abaixo e salve como `index.html`:
-
-```html
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>PerfilStudio Neural Master Pro</title>
-    <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
-    <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)">
-    <style>
         .chat-scroll::-webkit-scrollbar { width: 4px; }
         .chat-scroll::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
     </style>
@@ -169,9 +15,9 @@ Copie o código abaixo e salve como `index.html`:
 
     <header class="bg-slate-900 border-b border-slate-800 p-4 sticky top-0 z-50 flex justify-between items-center shadow-lg">
         <h1 class="text-xs font-black bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent flex items-center gap-2">
-            <i class="fa-solid fa-dna text-pink-500"></i>PERFILSTUDIO MASTER PRO
+            <i class="fa-solid fa-dna text-pink-500"></i>PERFILSTUDIO SUPREME PRO
         </h1>
-        <span class="text-[10px] font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-full">SISTEMA ATIVO</span>
+        <span class="text-[10px] font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-full">SISTEMA ATIVO 24/7</span>
     </header>
 
     <main class="flex-1 max-w-md w-full mx-auto p-4 pb-24 space-y-4">
@@ -186,32 +32,35 @@ Copie o código abaixo e salve como `index.html`:
             </button>
         </div>
 
-        <!-- Painel de Configuração Absoluta -->
+        <!-- Painel de Customização Absoluta -->
         <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 space-y-3">
             <h2 class="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
-                <i class="fa-solid fa-sliders text-pink-500"></i> Configuração Biológica & Identitária
+                <i class="fa-solid fa-sliders text-pink-500"></i> Configuração Biológica Completa
             </h2>
 
-            <!-- Gênero e Etnia -->
+            <!-- Gênero (Com as duas opções principais e variações) -->
             <div class="grid grid-cols-2 gap-2">
                 <div>
                     <label class="text-[10px] text-slate-400 block mb-1 font-semibold">Identidade de Gênero</label>
                     <select id="input-genero" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200">
                         <option value="feminino">Feminino</option>
                         <option value="masculino">Masculino</option>
-                        <option value="nao-binario">Não-binário</option>
+                        <option value="nao-binario">Não-Binário</option>
                         <option value="genero-fluido">Gênero Fluido</option>
+                        <option value="trans-feminino">Trans Feminino</option>
+                        <option value="trans-masculino">Trans Masculino</option>
                     </select>
                 </div>
                 <div>
                     <label class="text-[10px] text-slate-400 block mb-1 font-semibold">Etnia Global</label>
                     <select id="input-etnia" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200">
-                        <option value="Latina / Morena">Latina / Morena</option>
+                        <option value="Latina / Morena">Latina / Morena Clara</option>
                         <option value="Branca / Europeia / Nórdica">Branca / Europeia / Nórdica</option>
                         <option value="Negra / Afrodescendente">Negra / Afrodescendente</option>
-                        <option value="Asiática">Asiática</option>
-                        <option value="Mestiça / Indígena">Mestiça / Indígena</option>
-                        <option value="Oriente Médio">Oriente Médio</option>
+                        <option value="Asiática (Leste/Sul)">Asiática (Leste/Sul)</option>
+                        <option value="Mestiça / Indígena / Nativa">Mestiça / Indígena / Nativa</option>
+                        <option value="Oriente Médio / Árabe">Oriente Médio / Árabe</option>
+                        <option value="Parda / Mestiça Global">Parda / Mestiça Global</option>
                     </select>
                 </div>
             </div>
@@ -222,32 +71,33 @@ Copie o código abaixo e salve como `index.html`:
                     <label class="text-[10px] text-slate-400 block mb-1 font-semibold">Profissão / Atuação</label>
                     <select id="input-prof" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200">
                         <option value="Astrólogo & Terapeuta Binaural">Astrólogo & Terapeuta Binaural</option>
-                        <option value="Arquiteta & Designer">Arquiteta & Designer</option>
-                        <option value="Desenvolvedor Tech Sênior">Desenvolvedor Tech Sênior</option>
-                        <option value="Modelo Internacional">Modelo Internacional</option>
+                        <option value="Arquiteta & Designer de Interiores">Arquiteta & Designer de Interiores</option>
+                        <option value="Desenvolvedor de Software Sênior">Desenvolvedor Tech Sênior</option>
+                        <option value="Modelo Internacional & Creator">Modelo Internacional & Creator</option>
                         <option value="Artista Plástica & Tatuadora">Artista Plástica & Tatuadora</option>
-                        <option value="Empresário & Investidor">Empresário & Investidor</option>
-                        <option value="Médica Cirurgiã">Médica Cirurgiã</option>
+                        <option value="Empresário & Investidor Venture">Empresário & Investidor</option>
+                        <option value="Médica Cirurgiã & Pesquisadora">Médica Cirurgiã & Pesquisadora</option>
                         <option value="Psicanalista & Escritora">Psicanalista & Escritora</option>
                         <option value="DJ & Produtora Musical">DJ & Produtora Musical</option>
+                        <option value="Advogada Criminalista">Advogada Criminalista</option>
                     </select>
                 </div>
                 <div>
                     <label class="text-[10px] text-slate-400 block mb-1 font-semibold">Tipo Físico</label>
                     <select id="input-fisico" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200">
-                        <option value="Atlético & Definido">Atlético & Definido</option>
-                        <option value="Magro & Esguio">Magro & Esguio</option>
-                        <option value="Curvilíneo & Sofisticado">Curvilíneo & Sofisticado</option>
-                        <option value="Musculoso & Robusto">Musculoso & Robusto</option>
-                        <option value="Petite & Delicado">Petite & Delicado</option>
-                        <option value="Plus Size Elegante">Plus Size Elegante</option>
+                        <option value="Atlético, Tonificado & Definido">Atlético, Tonificado & Definido</option>
+                        <option value="Magro, Esguio & Elegante">Magro, Esguio & Elegante</option>
+                        <option value="Curvilíneo, Marcante & Sofisticado">Curvilíneo, Marcante & Sofisticado</option>
+                        <option value="Musculoso, Robusto & Forte">Musculoso, Robusto & Forte</option>
+                        <option value="Petite, Delicado & Estilizado">Petite, Delicado & Estilizado</option>
+                        <option value="Plus Size Elegante & Encorpado">Plus Size Elegante & Encorpado</option>
                     </select>
                 </div>
             </div>
 
-            <!-- Formulário Astrológico com os 12 Signos -->
+            <!-- Formulário Astrológico com os 12 Signos para cada astro -->
             <div class="bg-slate-950/70 p-3 rounded-xl border border-slate-800 space-y-2">
-                <span class="text-[10px] font-bold text-pink-400 uppercase tracking-wider block"><i class="fa-solid fa-moon mr-1"></i> Configuração Astrológica (Mapa Natal Completo)</span>
+                <span class="text-[10px] font-bold text-pink-400 uppercase tracking-wider block"><i class="fa-solid fa-moon mr-1"></i> Configuração Astrológica (Mapa Natal com 12 Signos)</span>
                 
                 <div class="grid grid-cols-3 gap-1.5">
                     <div>
@@ -292,19 +142,19 @@ Copie o código abaixo e salve como `index.html`:
                 </div>
             </div>
 
-            <!-- Botões de Geração de Selfie por Formato -->
+            <!-- Botões de Formato de Selfie Dedicados (4:5 e 9:16) -->
             <div class="space-y-1.5 pt-1">
-                <span class="text-[10px] text-slate-400 font-semibold uppercase block">Gerar Selfies em Locais Reais</span>
+                <span class="text-[10px] text-slate-400 font-semibold uppercase block">Captura de Selfies & Formatos</span>
                 <div class="grid grid-cols-2 gap-2">
                     <button onclick="gerarSelfieFormato('4:5')" class="bg-gradient-to-r from-pink-600 to-purple-600 hover:brightness-110 text-white font-bold py-2.5 rounded-xl shadow transition-all text-xs flex items-center justify-center gap-1.5">
-                        <i class="fa-solid fa-mobile-screen"></i> Selfie 4:5 (Feed)
+                        <i class="fa-solid fa-mobile-screen"></i> Tirar Selfie 4:5
                     </button>
                     <button onclick="gerarSelfieFormato('9:16')" class="bg-gradient-to-r from-purple-600 to-indigo-600 hover:brightness-110 text-white font-bold py-2.5 rounded-xl shadow transition-all text-xs flex items-center justify-center gap-1.5">
-                        <i class="fa-solid fa-film"></i> Selfie 9:16 (Stories)
+                        <i class="fa-solid fa-film"></i> Tirar Selfie 9:16
                     </button>
                 </div>
                 <button onclick="gerarPerfilCompleto()" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold py-2.5 rounded-xl transition-all text-xs flex items-center justify-center gap-1.5">
-                    <i class="fa-solid fa-rotate"></i> Atualizar Identidade & Bio Completa
+                    <i class="fa-solid fa-rotate"></i> Atualizar Identidade, Bio & Astrologia
                 </button>
             </div>
         </div>
@@ -316,30 +166,30 @@ Copie o código abaixo e salve como `index.html`:
                 <div class="p-3 border-b border-slate-800 flex justify-between items-center bg-slate-950/40">
                     <div class="flex items-center gap-2">
                         <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-yellow-500 to-pink-500 p-[2px]">
-                            <img id="insta-avatar-mini" src="[https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80](https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80)" class="w-full h-full object-cover rounded-full">
+                            <img id="insta-avatar-mini" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover rounded-full">
                         </div>
                         <span id="insta-username" class="font-bold text-xs tracking-tight text-slate-100">@clara.vargas</span>
                     </div>
                     <i class="fa-solid fa-ellipsis text-slate-400 text-xs"></i>
                 </div>
                 
-                <!-- Imagem Fotorrealista com Aspecto Dinâmico -->
+                <!-- Imagem Fotorrealista com Formato Dinâmico (4:5 ou 9:16) -->
                 <div id="wrapper-foto-insta" class="relative aspect-[4/5] bg-slate-950 overflow-hidden transition-all duration-500">
-                    <img id="insta-img" src="[https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80](https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80)" class="w-full h-full object-cover transition-all duration-700" alt="Selfie Consistente">
+                    <img id="insta-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover transition-all duration-700" alt="Selfie Consistente">
                     <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[11px] text-slate-200 border border-white/10 flex items-center gap-1.5">
-                        <i class="fa-solid fa-location-dot text-pink-500"></i> <span id="insta-loc-tag">São Paulo, SP</span>
+                        <i class="fa-solid fa-location-dot text-pink-500"></i> <span id="insta-loc-tag">São Paulo, SP (Jardins)</span>
                     </div>
                     <div id="badge-formato" class="absolute top-3 right-3 bg-purple-950/80 backdrop-blur-md px-2.5 py-1 rounded-lg text-[10px] text-purple-200 border border-purple-500/30 font-mono">
                         Formato 4:5
                     </div>
                 </div>
 
-                <!-- Bio & Info -->
+                <!-- Bio & Info com Astrologia Completa -->
                 <div class="p-4 space-y-2.5">
                     <div class="flex items-center justify-around text-center text-xs border-b border-slate-800/80 pb-2.5">
-                        <div><span class="font-bold text-white block text-sm">82</span><span class="text-[10px] text-slate-400">posts</span></div>
-                        <div><span class="font-bold text-white block text-sm">31.4K</span><span class="text-[10px] text-slate-400">seguidores</span></div>
-                        <div><span class="font-bold text-white block text-sm">410</span><span class="text-[10px] text-slate-400">seguindo</span></div>
+                        <div><span class="font-bold text-white block text-sm">94</span><span class="text-[10px] text-slate-400">posts</span></div>
+                        <div><span class="font-bold text-white block text-sm">42.8K</span><span class="text-[10px] text-slate-400">seguidores</span></div>
+                        <div><span class="font-bold text-white block text-sm">380</span><span class="text-[10px] text-slate-400">seguindo</span></div>
                     </div>
                     <div>
                         <p id="insta-name" class="font-bold text-xs text-white">Clara Vargas</p>
@@ -350,8 +200,8 @@ Copie o código abaixo e salve como `index.html`:
 
             <!-- Card Tinder -->
             <div id="card-tinder" class="hidden bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl transition-all">
-                <div id="wrapper-foto-tinder" class="relative aspect-[9/16] bg-slate-950 transition-all duration-500">
-                    <img id="tinder-img" src="[https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80](https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80)" class="w-full h-full object-cover transition-all duration-700" alt="Tinder Foto">
+                <div id="wrapper-foto-tinder" class="relative aspect-[4/5] bg-slate-950 transition-all duration-500">
+                    <img id="tinder-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover transition-all duration-700" alt="Tinder Foto">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-95"></div>
                     <div class="absolute bottom-4 left-4 right-4 text-white space-y-2">
                         <div class="flex items-baseline gap-2">
@@ -369,10 +219,10 @@ Copie o código abaixo e salve como `index.html`:
             </div>
         </div>
 
-        <!-- Chat Conversacional Autônomo -->
+        <!-- Chat Conversacional Inteligente -->
         <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 space-y-3 shadow-xl">
             <h3 class="text-xs font-bold text-slate-200 uppercase tracking-wider flex items-center gap-2">
-                <i class="fa-solid fa-comments text-pink-500"></i> Conversar com a IA em Tempo Real
+                <i class="fa-solid fa-comments text-pink-500"></i> Conversar com o Perfil Vivo
             </h3>
             
             <div id="chat-box" class="h-48 bg-slate-950 border border-slate-800/80 rounded-xl p-3 overflow-y-auto chat-scroll space-y-2.5 text-xs">
@@ -383,7 +233,7 @@ Copie o código abaixo e salve como `index.html`:
             </div>
 
             <div class="flex gap-2">
-                <input type="text" id="chat-input" placeholder="Digite sua mensagem para a IA..." class="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5 text-xs text-slate-200 focus:outline-none focus:border-pink-500">
+                <input type="text" id="chat-input" placeholder="Digite sua mensagem para conversar..." class="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5 text-xs text-slate-200 focus:outline-none focus:border-pink-500">
                 <button onclick="enviarMensagemChat()" class="bg-gradient-to-r from-pink-600 to-purple-600 hover:brightness-110 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition-all flex items-center justify-center">
                     <i class="fa-solid fa-paper-plane"></i>
                 </button>
@@ -397,22 +247,30 @@ Copie o código abaixo e salve como `index.html`:
 
         const bancosVisuais = {
             feminino: [
-                "[https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80](https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80)",
-                "[https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1000&q=80](https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1000&q=80)",
-                "[https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1000&q=80](https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1000&q=80)"
+                "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80",
+                "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1000&q=80",
+                "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1000&q=80"
             ],
             masculino: [
-                "[https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1000&q=80](https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1000&q=80)",
-                "[https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=1000&q=80](https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=1000&q=80)",
-                "[https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1000&q=80](https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1000&q=80)"
+                "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1000&q=80",
+                "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=1000&q=80",
+                "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1000&q=80"
             ],
             "nao-binario": [
-                "[https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=1000&q=80](https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=1000&q=80)",
-                "[https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=1000&q=80](https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=1000&q=80)"
+                "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=1000&q=80",
+                "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=1000&q=80"
             ],
             "genero-fluido": [
-                "[https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=1000&q=80](https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=1000&q=80)",
-                "[https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80](https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80)"
+                "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=1000&q=80",
+                "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80"
+            ],
+            "trans-feminino": [
+                "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1000&q=80",
+                "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80"
+            ],
+            "trans-masculino": [
+                "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1000&q=80",
+                "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1000&q=80"
             ]
         };
 
@@ -470,7 +328,7 @@ Copie o código abaixo e salve como `index.html`:
             const marte = document.getElementById('astro-marte').value;
             const lilith = document.getElementById('astro-lilith').value;
 
-            const nomes = genero === 'masculino' ? ["Lucas Siqueira", "Matheus Ribeiro", "Gabriel Duarte"] : ["Clara Vargas", "Helena Rossi", "Sofia Mendes"];
+            const nomes = (genero === 'masculino' || genero === 'trans-masculino') ? ["Lucas Siqueira", "Matheus Ribeiro", "Gabriel Duarte"] : ["Clara Vargas", "Helena Rossi", "Sofia Mendes"];
             const nome = nomes[Math.floor(Math.random() * nomes.length)];
             const handle = "@" + nome.toLowerCase().replace(" ", ".");
 
