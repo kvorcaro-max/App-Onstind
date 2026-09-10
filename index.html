@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador Avançado de Perfis Realistas | IG & Tinder</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fdf2f8',
+                            500: '#ec4899',
+                            600: '#db2777',
+                            700: '#be185d',
+                        },
+                        tinder: {
+                            pink: '#fd297b',
+                            orange: '#ff5864'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        @keyframes pulse-subtle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .animate-pulse-subtle { animation: pulse-subtle 3s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen selection:bg-pink-500 selection:text-white flex flex-col">
+
+    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50 px-4 py-3">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-pink-500 via-purple-500 to-amber-500 flex items-center justify-center shadow-lg shadow-pink-500/20">
+                    <i class="fa-solid fa-wand-magic-sparkles text-white text-lg"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg bg-gradient-to-r from-white via-slate-200 to-pink-400 bg-clip-text text-transparent">PersonaGen AI</h1>
+                    <p class="text-xs text-slate-400">Gerador Imersivo de Perfis Sociais & Adult Dating</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-2">
+                <button onclick="app.randomizeAll()" class="px-3.5 py-2 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition flex items-center space-x-1.5 shadow-sm">
+                    <i class="fa-solid fa-dice text-pink-400"></i>
+                    <span class="hidden sm:inline">Gerar Biografia Completa</span>
+                </button>
+                <button onclick="app.exportProfile()" class="px-3.5 py-2 text-xs font-semibold rounded-lg bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white transition flex items-center space-x-1.5 shadow-md shadow-pink-600/30">
+                    <i class="fa-solid fa-download"></i>
+                    <span>Exportar Pacote</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+        <!-- CONFIGURATION PANEL (LEFT: 5 cols) -->
+        <section class="lg:col-span-5 space-y-6">
+            <!-- Parameter Control Card -->
+            <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-xl backdrop-blur">
+                <div class="flex items-center justify-between mb-4 border-b border-slate-800 pb-3">
+                    <h2 class="text-sm font-bold uppercase tracking-wider text-pink-400 flex items-center space-x-2">
+                        <i class="fa-solid fa-sliders"></i>
+                        <span>Parâmetros de Identidade</span>
+                    </h2>
+                    <span id="completenessScore" class="text-xs px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-medium">Coerência: 100%</span>
+                </div>
+
+                <div class="space-y-4 text-sm">
+                    <!-- Nome & Idade -->
+                    <div class="grid grid-cols-3 gap-3">
+                        <div class="col-span-2">
+                            <label class="block text-xs font-medium text-slate-400 mb-1">Nome Completo</label>
+                            <input type="text" id="inputName" oninput="app.updateData()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-slate-200 focus:outline-none focus:border-pink-500 transition" placeholder="Ex: Valentina Rossi">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-400 mb-1">Idade</label>
+                            <input type="number" id="inputAge" min="18" max="65" oninput="app.updateData()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-slate-200 focus:outline-none focus:border-pink-500 transition" value="24">
+                        </div>
+                    </div>
+
+                    <!-- Profissão & Arquétipo -->
+                    <div>
+                        <label class="block text-xs font-medium text-slate-400 mb-1">Arquétipo & Profissão</label>
+                        <select id="inputProfession" onchange="app.updateData()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-slate-200 focus:outline-none focus:border-pink-500 transition">
+                            <option value="astrologer">Astróloga & Leitora de Tarô</option>
+                            <option value="therapist">Terapeuta Holística & Autoconhecimento</option>
+                            <option value="creator">Criadora de Conteúdo & Digital Influencer</option>
+                            <option value="architect">Arquiteta & Designer de Interiores</option>
+                            <option value="fitness">Personal Trainer & Coach de Bem-Estar</option>
+                            <option value="model">Modelo Fotográfica & Jet-setter</option>
+                            <option value="dj">DJ & Produtora de Música Eletrônica</option>
+                        </select>
+                    </div>
+
+                    <!-- Localização Base -->
+                    <div>
+                        <label class="block text-xs font-medium text-slate-400 mb-1">Localização Base / Bairro Famoso</label>
+                        <select id="inputLocation" onchange="app.updateData()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-slate-200 focus:outline-none focus:border-pink-500 transition">
+                            <option value="sp_jardins">São Paulo (Jardins / Oscar Freire)</option>
+                            <option value="sp_pinheiros">São Paulo (Pinheiros / Vila Madalena)</option>
+                            <option value="rj_ipanema">Rio de Janeiro (Ipanema / Leblon)</option>
+                            <option value="paris_marais">Paris (Le Marais / Saint-Germain)</option>
+                            <option value="tokyo_shibuya">Tóquio (Shibuya / Daikanyama)</option>
+                            <option value="miami_brickell">Miami (Brickell / South Beach)</option>
+                        </select>
+                    </div>
+
+                    <!-- Estilo de Biografia -->
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <label class="text-xs font-medium text-slate-400">Biografia Personalizada</label>
+                            <button onclick="app.regenerateBio()" class="text-xs text-pink-400 hover:text-pink-300 transition flex items-center space-x-1">
+                                <i class="fa-solid fa-rotate"></i><span>Gerar Nova Bio</span>
+                            </button>
+                        </div>
+                        <textarea id="inputBio" rows="3" oninput="app.updateData()" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-slate-200 focus:outline-none focus:border-pink-500 transition text-xs leading-relaxed" placeholder="Escreva ou gere automaticamente..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Photorealistic Generation Engine Card -->
+            <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-xl backdrop-blur">
+                <div class="flex items-center justify-between mb-4 border-b border-slate-800 pb-3">
+                    <h2 class="text-sm font-bold uppercase tracking-wider text-purple-400 flex items-center space-x-2">
+                        <i class="fa-solid fa-camera-retro"></i>
+                        <span>Estúdio de Fotografias Realistas</span>
+                    </h2>
+                    <span class="text-xs text-slate-400">Engine v4.2</span>
+                </div>
+
+                <div class="space-y-4 text-sm">
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-medium text-slate-400 mb-1">Cenário / Local</label>
+                            <select id="photoSetting" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-slate-200 focus:outline-none focus:border-purple-500 transition text-xs">
+                                <option value="cafe">Café Minimalista com Luz Natural</option>
+                                <option value="sunset_beach">Praia ao Pôr do Sol (Golden Hour)</option>
+                                <option value="luxury_apartment">Apartamento Moderno de Designer</option>
+                                <option value="urban_street">Rua Estilosa em Bairro Boêmio</option>
+                                <option value="art_gallery">Galeria de Arte / Exposição</option>
+                                <option value="rooftop_bar">Rooftop Lounge Noturno</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-400 mb-1">Iluminação / Atmosfera</label>
+                            <select id="photoLighting" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-slate-200 focus:outline-none focus:border-purple-500 transition text-xs">
+                                <option value="golden">Golden Hour (Suave & Quente)</option>
+                                <option value="cinematic">Cinemática Neons / Sombreada</option>
+                                <option value="natural">Luz Natural Difusa de Janela</option>
+                                <option value="flash">Direct Flash / Estilo Polaroid</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-2 pt-1">
+                        <button onclick="app.generateNewPhoto()" class="flex-1 py-2.5 px-4 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-semibold text-xs transition flex items-center justify-center space-x-2 shadow-lg shadow-purple-600/30">
+                            <i class="fa-solid fa-wand-magic"></i>
+                            <span>Gerar Nova Foto IA (Slot Atual)</span>
+                        </button>
+                        <button onclick="app.clearPhotos()" title="Limpar Galeria" class="p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+
+                    <!-- Photo slots preview grid -->
+                    <div>
+                        <label class="block text-xs font-medium text-slate-400 mb-2">Slots de Mídia do Perfil (<span id="photoCount">0</span>/6)</label>
+                        <div id="photoGrid" class="grid grid-cols-3 gap-2">
+                            <!-- Injetado por JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Biologically Real Life Timeline Card -->
+            <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-xl backdrop-blur">
+                <div class="flex items-center justify-between mb-4 border-b border-slate-800 pb-3">
+                    <h2 class="text-sm font-bold uppercase tracking-wider text-amber-400 flex items-center space-x-2">
+                        <i class="fa-solid fa-dna"></i>
+                        <span>DADOS DA VIDA REAL (BIOGRAFIA COERENTE)</span>
+                    </h2>
+                    <button onclick="app.generateLifeTimeline()" class="text-xs text-amber-400 hover:text-amber-300">Recalcular</button>
+                </div>
+
+                <div id="lifeTimelineContent" class="space-y-3 text-xs text-slate-300">
+                    <!-- Preenchido via script -->
+                </div>
+            </div>
+        </section>
+
+        <!-- PREVIEW PANEL (RIGHT: 7 cols) -->
+        <section class="lg:col-span-7 flex flex-col space-y-4">
+            <!-- Platform Switcher Tabs -->
+            <div class="flex items-center justify-between bg-slate-900/90 border border-slate-800 rounded-2xl p-1.5 shadow-xl">
+                <div class="flex space-x-1 w-full">
+                    <button onclick="app.switchTab('instagram')" id="btnTabIg" class="flex-1 py-2.5 px-4 rounded-xl font-semibold text-xs transition flex items-center justify-center space-x-2 bg-gradient-to-r from-pink-600 to-purple-600 text-white shadow-md">
+                        <i class="fa-brands fa-instagram text-base"></i>
+                        <span>Visualização Instagram</span>
+                    </button>
+                    <button onclick="app.switchTab('tinder')" id="btnTabTinder" class="flex-1 py-2.5 px-4 rounded-xl font-semibold text-xs transition flex items-center justify-center space-x-2 text-slate-400 hover:text-white hover:bg-slate-800/60">
+                        <i class="fa-solid fa-fire text-base text-tinder-pink"></i>
+                        <span>Visualização Tinder</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Device Mockup Frame Container -->
+            <div class="flex-1 flex items-center justify-center p-2 sm:p-6 bg-slate-900/60 border border-slate-800/80 rounded-3xl backdrop-blur relative overflow-hidden min-h-[680px]">
+                
+                <!-- PHONE CONTAINER -->
+                <div class="w-full max-w-[390px] bg-black rounded-[40px] border-[10px] border-slate-800 shadow-2xl overflow-hidden flex flex-col h-[750px] relative">
+                    
+                    <!-- Phone Notch / Dynamic Island -->
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 h-5 w-32 bg-slate-800 rounded-b-2xl z-50 flex items-center justify-center">
+                        <div class="w-3 h-3 rounded-full bg-slate-900 mr-2"></div>
+                        <div class="w-2 h-2 rounded-full bg-slate-900/60"></div>
+                    </div>
+
+                    <!-- INSTAGRAM PREVIEW VIEW -->
+                    <div id="viewInstagram" class="flex-1 flex flex-col bg-black text-white pt-8 overflow-y-auto hide-scrollbar">
+                        <!-- IG Header Bar -->
+                        <div class="px-4 py-2 flex items-center justify-between border-b border-zinc-900">
+                            <div class="flex items-center space-x-1 font-bold text-sm tracking-tight">
+                                <span id="igHandleTop">val.rossi</span>
+                                <i class="fa-solid fa-angle-down text-[10px] ml-1 text-zinc-400"></i>
+                            </div>
+                            <div class="flex items-center space-x-4 text-lg">
+                                <i class="fa-regular fa-square-plus"></i>
+                                <i class="fa-brands fa-instagram"></i>
+                                <i class="fa-regular fa-paper-plane"></i>
+                            </div>
+                        </div>
+
+                        <!-- IG Profile Info Header -->
+                        <div class="px-4 py-3">
+                            <div class="flex items-center justify-between">
+                                <!-- Avatar -->
+                                <div class="relative">
+                                    <div class="w-20 h-20 rounded-full p-[2px] bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-600">
+                                        <img id="igAvatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300" class="w-full h-full object-cover rounded-full border-2 border-black" alt="Avatar">
+                                    </div>
+                                    <div class="absolute bottom-0 right-0 bg-pink-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px] border-2 border-black">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                </div>
+                                <!-- Stats -->
+                                <div class="flex-1 flex justify-around text-center ml-4">
+                                    <div>
+                                        <div class="font-bold text-sm" id="igPostsCount">48</div>
+                                        <div class="text-[11px] text-zinc-400">Publicações</div>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-sm" id="igFollowersCount">12.4 mil</div>
+                                        <div class="text-[11px] text-zinc-400">Seguidores</div>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-sm">482</div>
+                                        <div class="text-[11px] text-zinc-400">Seguindo</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Name & Bio -->
+                            <div class="mt-3 text-xs">
+                                <div class="font-bold" id="igNameDisplay">Valentina Rossi ✨</div>
+                                <div class="text-zinc-400 text-[11px] mt-0.5" id="igCategoryDisplay">Astróloga & Criadora de Conteúdo</div>
+                                <div class="mt-1 text-zinc-200 whitespace-pre-line leading-relaxed" id="igBioDisplay">
+                                    Explorando os mistérios do cosmos e autoconhecimento 🌙🔮<br>São Paulo • SP<br>📍 Tarot & Astrologia
+                                </div>
+                                <div class="mt-1 text-blue-400 font-medium" id="igLinkDisplay">
+                                    <i class="fa-solid fa-link text-[10px] mr-1"></i>beacons.ai/valentina.rossi
+                                </div>
+                            </div>
+
+                            <!-- Action Buttons -->
+                            <div class="flex space-x-2 mt-3">
+                                <button class="flex-1 bg-zinc-800 hover:bg-zinc-700 font-semibold py-1.5 rounded-lg text-xs transition">Seguir</button>
+                                <button class="flex-1 bg-zinc-800 hover:bg-zinc-700 font-semibold py-1.5 rounded-lg text-xs transition">Mensagem</button>
+                                <button class="bg-zinc-800 hover:bg-zinc-700 px-3 py-1.5 rounded-lg text-xs transition"><i class="fa-solid fa-user-plus"></i></button>
+                            </div>
+
+                            <!-- Highlights Row -->
+                            <div class="flex space-x-4 mt-4 overflow-x-auto hide-scrollbar pb-1">
+                                <div class="flex flex-col items-center space-y-1 flex-shrink-0">
+                                    <div class="w-14 h-14 rounded-full p-[2px] border border-zinc-700">
+                                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=150" class="w-full h-full object-cover rounded-full">
+                                    </div>
+                                    <span class="text-[10px] text-zinc-300">Cosmos 🌌</span>
+                                </div>
+                                <div class="flex flex-col items-center space-y-1 flex-shrink-0">
+                                    <div class="w-14 h-14 rounded-full p-[2px] border border-zinc-700">
+                                        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=150" class="w-full h-full object-cover rounded-full">
+                                    </div>
+                                    <span class="text-[10px] text-zinc-300">Viagens ✈️</span>
+                                </div>
+                                <div class="flex flex-col items-center space-y-1 flex-shrink-0">
+                                    <div class="w-14 h-14 rounded-full p-[2px] border border-zinc-700">
+                                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150" class="w-full h-full object-cover rounded-full">
+                                    </div>
+                                    <span class="text-[10px] text-zinc-300">Lifestyle 🍷</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- IG Tab Switcher -->
+                        <div class="flex border-t border-zinc-800 mt-2">
+                            <div class="flex-1 py-2 flex justify-center border-b-2 border-white text-white"><i class="fa-solid fa-table-cells text-sm"></i></div>
+                            <div class="flex-1 py-2 flex justify-center text-zinc-500"><i class="fa-solid fa-clapperboard text-sm"></i></div>
+                            <div class="flex-1 py-2 flex justify-center text-zinc-500"><i class="fa-regular fa-id-badge text-sm"></i></div>
+                        </div>
+
+                        <!-- IG Grid Feed -->
+                        <div id="igFeedGrid" class="grid grid-cols-3 gap-[1px] bg-zinc-900 flex-1">
+                            <!-- Injetado dinamicamente -->
+                        </div>
+                    </div>
+
+                    <!-- TINDER PREVIEW VIEW (Hidden by default) -->
+                    <div id="viewTinder" class="hidden flex-1 flex flex-col bg-gradient-to-b from-slate-900 to-black text-white pt-8 overflow-y-auto hide-scrollbar">
+                        <!-- Tinder Header -->
+                        <div class="px-4 py-2 flex items-center justify-between">
+                            <div class="text-tinder-pink font-black text-lg tracking-wider flex items-center">
+                                <i class="fa-solid fa-fire mr-1"></i>tinder
+                            </div>
+                            <div class="flex items-center space-x-3 text-zinc-400 text-sm">
+                                <i class="fa-solid fa-shield-halved"></i>
+                                <i class="fa-solid fa-sliders"></i>
+                            </div>
+                        </div>
+
+                        <!-- Tinder Card Stack Simulation -->
+                        <div class="flex-1 p-3 flex flex-col justify-center">
+                            <div class="w-full h-[480px] bg-zinc-900 rounded-3xl overflow-hidden relative shadow-2xl border border-zinc-800 flex flex-col justify-end">
+                                <!-- Card Image -->
+                                <img id="tinderMainImage" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600" class="absolute inset-0 w-full h-full object-cover" alt="Tinder Profile">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+
+                                <!-- Card Details overlay -->
+                                <div class="relative z-10 p-5 text-left">
+                                    <div class="flex items-baseline space-x-2">
+                                        <h3 class="text-2xl font-bold" id="tinderNameDisplay">Valentina Rossi</h3>
+                                        <span class="text-2xl font-light" id="tinderAgeDisplay">24</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2 text-xs text-zinc-300 mt-1">
+                                        <i class="fa-solid fa-briefcase"></i>
+                                        <span id="tinderProfessionDisplay">Astróloga & Criadora de Conteúdo</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2 text-xs text-zinc-300 mt-0.5">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                        <span id="tinderLocationDisplay">A 3 km de distância • São Paulo</span>
+                                    </div>
+
+                                    <!-- Bio Box in Tinder -->
+                                    <div class="mt-3 p-3 bg-black/40 backdrop-blur rounded-xl border border-white/10 text-xs text-zinc-200" id="tinderBioDisplay">
+                                        Explorando os mistérios do cosmos e autoconhecimento 🌙🔮 Vivendo entre São Paulo e o mundo digital.
+                                    </div>
+
+                                    <!-- Badges pills -->
+                                    <div class="flex flex-wrap gap-1.5 mt-3">
+                                        <span class="px-2.5 py-1 rounded-full bg-white/10 text-[10px] backdrop-blur border border-white/20">✨ Escorpião</span>
+                                        <span class="px-2.5 py-1 rounded-full bg-white/10 text-[10px] backdrop-blur border border-white/20">☕ Café Lover</span>
+                                        <span class="px-2.5 py-1 rounded-full bg-white/10 text-[10px] backdrop-blur border border-white/20">✈️ Apaixonada por Viagens</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tinder Action Buttons -->
+                            <div class="flex items-center justify-around py-3 px-6">
+                                <button class="w-11 h-11 rounded-full bg-zinc-900 border border-zinc-800 text-amber-400 flex items-center justify-center shadow-md hover:scale-105 transition"><i class="fa-solid fa-rotate-left"></i></button>
+                                <button class="w-14 h-14 rounded-full bg-zinc-900 border border-zinc-800 text-rose-500 text-xl flex items-center justify-center shadow-lg hover:scale-105 transition"><i class="fa-solid fa-xmark"></i></button>
+                                <button class="w-11 h-11 rounded-full bg-zinc-900 border border-zinc-800 text-sky-400 flex items-center justify-center shadow-md hover:scale-105 transition"><i class="fa-solid fa-star"></i></button>
+                                <button class="w-14 h-14 rounded-full bg-gradient-to-r from-pink-500 to-rose-500 text-white text-xl flex items-center justify-center shadow-lg shadow-pink-500/30 hover:scale-105 transition"><i class="fa-solid fa-heart"></i></button>
+                                <button class="w-11 h-11 rounded-full bg-zinc-900 border border-zinc-800 text-purple-400 flex items-center justify-center shadow-md hover:scale-105 transition"><i class="fa-solid fa-bolt"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Phone Bottom Home Bar -->
+                    <div class="h-5 bg-black flex items-center justify-center pb-1">
+                        <div class="w-32 h-1 bg-zinc-700 rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Banco de dados predefinido de perfis e archetypes realistas
+        const archetypes = {
+            astrologer: {
+                title: "Astróloga & Leitora de Tarô",
+                bios: [
+                    "Explorando os mistérios do cosmos e autoconhecimento 🌙🔮\nSão Paulo • SP\n📍 Tarot, Mapas Astrais & Vinhos",
+                    "Leitora intuitiva de energias e astróloga 🌌✨\nAcreditando em conexões genuínas e alinhamento estelar.",
+                    "Traduzindo o céu para a Terra 🔮 Praticando astrologia evolutiva e buscando conversas profundas."
+                ],
+                tags: ["✨ Escorpião", "🌙 Lua em Peixes", "🍷 Vinhos & Cafés", "🔮 Tarô"]
+            },
+            therapist: {
+                title: "Terapeuta Holística & Autoconhecimento",
+                bios: [
+                    "Psicoterapeuta integrativa e entusiasta de saúde mental 🌿\nEquilíbrio entre mente, corpo e alma.\n☕ São Paulo",
+                    "Ajudando pessoas a encontrarem clareza e paz interior 🧘‍♀️✨\nAmante de natureza, leitura e conversas sinceras.",
+                    "Focada em bem-estar e conexões reais. Curadora de momentos tranquilos e boas energias 🌸"
+                ],
+                tags: ["🌿 Mindful", "🧘‍♀️ Yoga", "📚 Livros", "☕ Chá Verde"]
+            },
+            creator: {
+                title: "Criadora de Conteúdo & Digital Influencer",
+                bios: [
+                    "Vivendo entre sets de gravação, viagens e cafés charmosos ✈️✨\nCriando conteúdo e colecionando memórias.\n📍 SP / RJ",
+                    "Lifestyle, estética e momentos reais 📸\nSempre em busca da próxima grande aventura ou restaurante incrível.",
+                    "Criadora de mundos digitais e experiências analógicas 🍸\nVamos tomar um café e conversar sobre arte?"
+                ],
+                tags: ["✈️ Jetsetter", "📸 Fotografia", "🍸 Rooftops", "🌆 São Paulo"]
+            },
+            architect: {
+                title: "Arquiteta & Designer de Interiores",
+                bios: [
+                    "Desenhando espaços e apreciando a estética minimalista 🏛️✨\nAmante de design, luz natural e boa arquitetura.",
+                    "Arquiteta por profissão, artista por vocação 📐\nViciada em café especial, museus e design urbano.",
+                    "Criando ambientes onde a alma descansa 🌿\nSempre em exposição ou visitando galerias de arte."
+                ],
+                tags: ["🏛️ Arquitetura", "☕ Café Especial", "🎨 Design", "🌿 Minimalismo"]
+            },
+            fitness: {
+                title: "Personal Trainer & Coach de Bem-Estar",
+                bios: [
+                    "Movimento é vida! 🏋️‍♀️ Focada em alta performance e qualidade de vida.\nSão Paulo • SP",
+                    "Amante de endorfina, vida ao ar livre e nutrição consciente 🥗⚡\nVamos treinar ou correr no parque?",
+                    "Disciplina, energia e foco no bem-estar físico e mental 🏃‍♀️🌊"
+                ],
+                tags: ["🏋️‍♀️ Fitness", "🥗 Nutrição", "🌊 Praia", "⚡ Alta Energia"]
+            },
+            model: {
+                title: "Modelo Fotográfica & Jet-setter",
+                bios: [
+                    "Entre flashes, passarelas e aeroportos ✈️📸\nVivendo a mil por hora entre SP, Paris e Milão.",
+                    "Modelo e amante de alta gastronomia e moda sustentável 🍷✨\nSempre pronta para a próxima viagem.",
+                    "Estética, luz natural e momentos inesquecíveis 🌟"
+                ],
+                tags: ["📸 Editorial", "✈️ Global", "🍷 Champagne", "✨ Alta Costura"]
+            },
+            dj: {
+                title: "DJ & Produtora de Música Eletrônica",
+                bios: [
+                    "Explorando frequências sonoras e batidas profundas 🎧🔥\nSet lists, festivais e noites em São Paulo.",
+                    "Produtora musical e apaixonada por basslines marcantes 🎛️✨\nSeja na pista ou num bar de jazz.",
+                    "Música é a linguagem da alma 🎶 Residências e sets autorais."
+                ],
+                tags: ["🎧 Tech House", "🎛️ Produção", "🌙 Noites", "🍸 Clubber"]
+            }
+        };
+
+        // Bancos de imagens realistas por cenários (Unsplash curados de altíssima qualidade)
+        const photoPools = {
+            cafe: [
+                "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600",
+                "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600",
+                "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600",
+                "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600"
+            ],
+            sunset_beach: [
+                "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600",
+                "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600",
+                "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=600",
+                "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=600"
+            ],
+            luxury_apartment: [
+                "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600",
+                "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=600",
+                "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600"
+            ],
+            urban_street: [
+                "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=600",
+                "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600",
+                "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600"
+            ],
+            art_gallery: [
+                "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600",
+                "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=600"
+            ],
+            rooftop_bar: [
+                "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600",
+                "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=600"
+            ]
+        };
+
+        class PersonaGeneratorApp {
+            constructor() {
+                this.name = "Valentina Rossi";
+                this.age = 24;
+                this.professionKey = "astrologer";
+                this.locationKey = "sp_jardins";
+                this.bio = "";
+                this.photos = [
+                    "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600",
+                    "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600",
+                    "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600",
+                    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600",
+                    "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=600",
+                    "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=600"
+                ];
+                this.init();
+            }
+
+            init() {
+                // Preencher valores iniciais
+                document.getElementById('inputName').value = this.name;
+                document.getElementById('inputAge').value = this.age;
+                document.getElementById('inputProfession').value = this.professionKey;
+                document.getElementById('inputLocation').value = this.locationKey;
+                
+                this.regenerateBio(false);
+                this.renderPhotos();
+                this.renderLifeTimeline();
+                this.updateData();
+            }
+
+            regenerateBio(updateUI = true) {
+                const prof = archetypes[this.professionKey];
+                const randomBio = prof.bios[Math.floor(Math.random() * prof.bios.length)];
+                this.bio = randomBio;
+                if(updateUI) {
+                    document.getElementById('inputBio').value = this.bio;
+                    this.updateData();
+                } else {
+                    document.getElementById('inputBio').value = this.bio;
+                }
+            }
+
+            randomizeAll() {
+                const names = ["Valentina Rossi", "Helena Vance", "Sophia Alencar", "Beatriz Costa", "Luiza Medeiros", "Clara Monteiro"];
+                const profKeys = Object.keys(archetypes);
+                const locKeys = ["sp_jardins", "sp_pinheiros", "rj_ipanema", "paris_marais", "tokyo_shibuya", "miami_brickell"];
+
+                this.name = names[Math.floor(Math.random() * names.length)];
+                this.age = Math.floor(Math.random() * 8) + 21; // 21 a 28 anos
+                this.professionKey = profKeys[Math.floor(Math.random() * profKeys.length)];
+                this.locationKey = locKeys[Math.floor(Math.random() * locKeys.length)];
+
+                document.getElementById('inputName').value = this.name;
+                document.getElementById('inputAge').value = this.age;
+                document.getElementById('inputProfession').value = this.professionKey;
+                document.getElementById('inputLocation').value = this.locationKey;
+
+                this.regenerateBio(false);
+                this.renderLifeTimeline();
+                this.updateData();
+            }
+
+            updateData() {
+                this.name = document.getElementById('inputName').value || "Valentina Rossi";
+                this.age = parseInt(document.getElementById('inputAge').value) || 24;
+                this.professionKey = document.getElementById('inputProfession').value;
+                this.locationKey = document.getElementById('inputLocation').value;
+                this.bio = document.getElementById('inputBio').value;
+
+                const profTitle = archetypes[this.professionKey].title;
+                const locText = this.getLocationLabel(this.locationKey);
+
+                // Atualizar Instagram Preview
+                document.getElementById('igHandleTop').innerText = this.name.toLowerCase().replace(/\s+/g, '.');
+                document.getElementById('igNameDisplay').innerText = this.name + " ✨";
+                document.getElementById('igCategoryDisplay').innerText = profTitle;
+                
+                // Formatar bio com quebras de linha corretas
+                document.getElementById('igBioDisplay').innerHTML = this.bio.replace(/\n/g, '<br>');
+
+                // Atualizar Tinder Preview
+                document.getElementById('tinderNameDisplay').innerText = this.name;
+                document.getElementById('tinderAgeDisplay').innerText = this.age;
+                document.getElementById('tinderProfessionDisplay').innerText = profTitle;
+                document.getElementById('tinderLocationDisplay').innerText = `A 2.5 km de distância • ${locText}`;
+                document.getElementById('tinderBioDisplay').innerText = this.bio;
+
+                // Avatar principal
+                if(this.photos.length > 0) {
+                    document.getElementById('igAvatar').src = this.photos[0];
+                    document.getElementById('tinderMainImage').src = this.photos[0];
+                }
+
+                this.renderFeedGrid();
+            }
+
+            getLocationLabel(key) {
+                const map = {
+                    sp_jardins: "São Paulo (Jardins)",
+                    sp_pinheiros: "São Paulo (Pinheiros)",
+                    rj_ipanema: "Rio de Janeiro (Ipanema)",
+                    paris_marais: "Paris (Le Marais)",
+                    tokyo_shibuya: "Tóquio (Shibuya)",
+                    miami_brickell: "Miami (Brickell)"
+                };
+                return map[key] || "São Paulo";
+            }
+
+            generateNewPhoto() {
+                const setting = document.getElementById('photoSetting').value;
+                const pool = photoPools[setting] || photoPools.cafe;
+                const randomPhoto = pool[Math.floor(Math.random() * pool.length)];
+
+                // Adicionar no início ou substituir
+                this.photos.unshift(randomPhoto);
+                if(this.photos.length > 9) this.photos.pop();
+
+                this.renderPhotos();
+                this.updateData();
+            }
+
+            clearPhotos() {
+                this.photos = ["https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600"];
+                this.renderPhotos();
+                this.updateData();
+            }
+
+            renderPhotos() {
+                const grid = document.getElementById('photoGrid');
+                document.getElementById('photoCount').innerText = this.photos.length;
+                grid.innerHTML = '';
+
+                this.photos.forEach((url, idx) => {
+                    const div = document.createElement('div');
+                    div.className = "relative aspect-square rounded-xl overflow-hidden border border-slate-800 group bg-slate-950";
+                    div.innerHTML = `
+                        <img src="${url}" class="w-full h-full object-cover">
+                        <button onclick="app.removePhoto(${idx})" class="absolute top-1 right-1 w-5 h-5 rounded-full bg-black/70 text-white flex items-center justify-center text-[10px] opacity-0 group-hover:opacity-100 transition hover:bg-rose-600">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    `;
+                    grid.appendChild(div);
+                });
+            }
+
+            removePhoto(idx) {
+                if(this.photos.length <= 1) return;
+                this.photos.splice(idx, 1);
+                this.renderPhotos();
+                this.updateData();
+            }
+
+            renderFeedGrid() {
+                const feed = document.getElementById('igFeedGrid');
+                feed.innerHTML = '';
+                // Mostrar fotos no feed do Instagram
+                this.photos.forEach((url) => {
+                    const item = document.createElement('div');
+                    item.className = "aspect-square bg-zinc-800 relative";
+                    item.innerHTML = `<img src="${url}" class="w-full h-full object-cover">`;
+                    feed.appendChild(item);
+                });
+            }
+
+            generateLifeTimeline() {
+                const schools = [
+                    "Graduada em Comunicação Social pela ESPM (2021)",
+                    "Formada em Design de Interiores pela FAAP (2020)",
+                    "Especialização em Psicologia Analítica e Terapias Integrativas (2022)",
+                    "Estudou Artes Visuais na Sorbonne Université, Paris (2019-2021)"
+                ];
+                const routines = [
+                    "Café da manhã às 08:30 no Botanik Café; Treino funcional às 10h; Reuniões remotas à tarde.",
+                    "Leitura matinal com matcha latte; Atendimentos terapêuticos e gravação de conteúdos nos finais de semana.",
+                    "Sessões de fotos comerciais pela manhã; Almoço em bistrô nos Jardins; Noites dedicadas à produção musical."
+                ];
+                const travelHabits = [
+                    "Frequenta o litoral norte paulista (Ilhabela) mensalmente; Viagens anuais para Europa no outono.",
+                    "Destinos favoritos: Paris, Buenos Aires e Trancoso. Amante de hotéis boutique e boa gastronomia.",
+                    "Rotina cosmopolita dividida entre São Paulo e escapadas rápidas para a serra ou praias reservadas."
+                ];
+
+                const s = schools[Math.floor(Math.random() * schools.length)];
+                const r = routines[Math.floor(Math.random() * routines.length)];
+                const t = travelHabits[Math.floor(Math.random() * travelHabits.length)];
+
+                const container = document.getElementById('lifeTimelineContent');
+                container.innerHTML = `
+                    <div class="p-2.5 bg-slate-950 rounded-xl border border-slate-800/80">
+                        <div class="font-semibold text-amber-400 mb-0.5"><i class="fa-solid fa-graduation-cap mr-1.5"></i>Histórico Escolar & Acadêmico</div>
+                        <div class="text-slate-300 text-[11px]">${s}</div>
+                    </div>
+                    <div class="p-2.5 bg-slate-950 rounded-xl border border-slate-800/80">
+                        <div class="font-semibold text-amber-400 mb-0.5"><i class="fa-solid fa-clock mr-1.5"></i>Rotina Diária Coerente</div>
+                        <div class="text-slate-300 text-[11px]">${r}</div>
+                    </div>
+                    <div class="p-2.5 bg-slate-950 rounded-xl border border-slate-800/80">
+                        <div class="font-semibold text-amber-400 mb-0.5"><i class="fa-solid fa-plane-departure mr-1.5"></i>Hábitos de Viagem & Lazer</div>
+                        <div class="text-slate-300 text-[11px]">${t}</div>
+                    </div>
+                `;
+            }
+
+            switchTab(tab) {
+                const btnIg = document.getElementById('btnTabIg');
+                const btnTinder = document.getElementById('btnTabTinder');
+                const viewIg = document.getElementById('viewInstagram');
+                const viewTinder = document.getElementById('viewTinder');
+
+                if(tab === 'instagram') {
+                    btnIg.className = "flex-1 py-2.5 px-4 rounded-xl font-semibold text-xs transition flex items-center justify-center space-x-2 bg-gradient-to-r from-pink-600 to-purple-600 text-white shadow-md";
+                    btnTinder.className = "flex-1 py-2.5 px-4 rounded-xl font-semibold text-xs transition flex items-center justify-center space-x-2 text-slate-400 hover:text-white hover:bg-slate-800/60";
+                    viewIg.classList.remove('hidden');
+                    viewTinder.classList.add('hidden');
+                } else {
+                    btnTinder.className = "flex-1 py-2.5 px-4 rounded-xl font-semibold text-xs transition flex items-center justify-center space-x-2 bg-gradient-to-r from-tinder-pink to-tinder-orange text-white shadow-md";
+                    btnIg.className = "flex-1 py-2.5 px-4 rounded-xl font-semibold text-xs transition flex items-center justify-center space-x-2 text-slate-400 hover:text-white hover:bg-slate-800/60";
+                    viewTinder.classList.remove('hidden');
+                    viewIg.classList.add('hidden');
+                }
+            }
+
+            exportProfile() {
+                const exportData = {
+                    nome: this.name,
+                    idade: this.age,
+                    profissao: archetypes[this.professionKey].title,
+                    localizacao: this.getLocationLabel(this.locationKey),
+                    biografia: this.bio,
+                    fotos: this.photos,
+                    geradoEm: new Date().toISOString()
+                };
+
+                const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportData, null, 2));
+                const downloadAnchor = document.createElement('a');
+                downloadAnchor.setAttribute("href", dataStr);
+                downloadAnchor.setAttribute("download", `perfil_${this.name.toLowerCase().replace(/\s+/g, '_')}.json`);
+                document.body.appendChild(downloadAnchor);
+                downloadAnchor.click();
+                downloadAnchor.remove();
+            }
+        }
+
+        // Inicializar aplicação ao carregar a página
+        let app;
+        window.onload = () => {
+            app = new PersonaGeneratorApp();
+        };
+    </script>
+</body>
+</html>
