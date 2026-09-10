@@ -3,136 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Gerador de Perfis Realistas AI</title>
+    <title>PerfilStudio AI Ultra - Vida Biológica & Real-Time</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @keyframes pulseGlow {
-            0%, 100% { box-shadow: 0 0 15px rgba(236, 72, 153, 0.2); }
-            50% { box-shadow: 0 0 30px rgba(236, 72, 153, 0.6); }
+        @keyframes neuralPulse {
+            0%, 100% { border-color: rgba(236, 72, 153, 0.4); box-shadow: 0 0 15px rgba(236, 72, 153, 0.1); }
+            50% { border-color: rgba(168, 85, 247, 0.9); box-shadow: 0 0 25px rgba(168, 85, 247, 0.4); }
         }
-        .ai-glow { animation: pulseGlow 2s infinite; }
+        .neural-card { animation: neuralPulse 3s infinite; }
+        .live-dot { animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite; }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen flex flex-col">
 
     <!-- Header -->
     <header class="bg-slate-900 border-b border-slate-800 p-4 sticky top-0 z-50 flex justify-between items-center">
-        <h1 class="text-lg font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent flex items-center gap-2">
-            <i class="fa-solid fa-brain text-pink-500"></i>PerfilStudio AI
+        <h1 class="text-sm font-black bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent flex items-center gap-2">
+            <i class="fa-solid fa-brain text-pink-500"></i>PERFILSTUDIO ULTRA AI
         </h1>
-        <span class="text-xs bg-pink-500/10 text-pink-400 border border-pink-500/20 px-2.5 py-1 rounded-full font-medium">Viva & Autônoma</span>
+        <div class="flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-full">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 live-dot"></span>
+            <span class="text-[10px] font-bold text-emerald-400 tracking-wider">IA ATIVA 1S</span>
+        </div>
     </header>
 
     <!-- Main Container -->
-    <main class="flex-1 max-w-md w-full mx-auto p-4 pb-24 space-y-5">
+    <main class="flex-1 max-w-md w-full mx-auto p-4 pb-24 space-y-4">
 
         <!-- Seletor de Plataforma -->
         <div class="grid grid-cols-2 gap-2 bg-slate-900 p-1.5 rounded-2xl border border-slate-800">
-            <button onclick="switchPlatform('instagram')" id="tab-insta" class="py-2.5 rounded-xl text-sm font-semibold transition-all bg-pink-600 text-white shadow-lg shadow-pink-600/30 flex items-center justify-center gap-2">
-                <i class="fa-brands fa-instagram"></i> Instagram
+            <button onclick="switchPlatform('instagram')" id="tab-insta" class="py-2.5 rounded-xl text-xs font-bold transition-all bg-pink-600 text-white shadow-lg shadow-pink-600/30 flex items-center justify-center gap-2">
+                <i class="fa-brands fa-instagram"></i> Instagram Pro
             </button>
-            <button onclick="switchPlatform('tinder')" id="tab-tinder" class="py-2.5 rounded-xl text-sm font-semibold transition-all text-slate-400 hover:text-white flex items-center justify-center gap-2">
-                <i class="fa-solid fa-fire"></i> Tinder
+            <button onclick="switchPlatform('tinder')" id="tab-tinder" class="py-2.5 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white flex items-center justify-center gap-2">
+                <i class="fa-solid fa-fire"></i> Tinder Gold
             </button>
         </div>
 
-        <!-- Painel de Configuração -->
-        <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 space-y-3 backdrop-blur-sm">
-            <h2 class="text-xs font-semibold text-slate-300 uppercase tracking-wider flex items-center gap-2">
-                <i class="fa-solid fa-sliders text-pink-500"></i> Parâmetros Base
-            </h2>
+        <!-- Módulo de Consciência em Tempo Real (A cada segundo) -->
+        <div class="bg-slate-900/90 border border-purple-500/40 rounded-2xl p-3.5 space-y-2 neural-card backdrop-blur-md">
+            <div class="flex justify-between items-center text-[11px] text-purple-300 font-semibold">
+                <span class="flex items-center gap-1.5">
+                    <i class="fa-solid fa-microchip animate-spin text-pink-400"></i> STREAM NEURAL BIOLÓGICO
+                </span>
+                <span id="relogio-ia" class="font-mono text-slate-400">00:00:00</span>
+            </div>
+            <div class="bg-slate-950/80 p-2.5 rounded-xl border border-slate-800/80">
+                <p id="neural-thought" class="text-xs text-slate-200 italic font-medium leading-relaxed">
+                    "Analisando padrões de luz no ambiente e calibrando expressão facial para a próxima selfie..."
+                </p>
+            </div>
+        </div>
 
+        <!-- Painel de Controle e Parâmetros -->
+        <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 space-y-3">
             <div class="grid grid-cols-2 gap-2">
                 <div>
-                    <label class="text-[11px] text-slate-400 block mb-1">Gênero / Estilo</label>
+                    <label class="text-[10px] text-slate-400 block mb-1 font-semibold uppercase">Arquétipo</label>
                     <select id="input-gender" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs focus:outline-none focus:border-pink-500 text-slate-200">
-                        <option value="mulher">Mulher Sofisticada</option>
-                        <option value="homem">Homem Confiante</option>
-                        <option value="alternativo">Estilo Alternativo</option>
+                        <option value="mulher">Mulher Sofisticada & Lifestyle</option>
+                        <option value="homem">Homem Executivo & Confiante</option>
+                        <option value="alternativo">Artista & Estilo Alternativo</option>
                     </select>
                 </div>
                 <div>
-                    <label class="text-[11px] text-slate-400 block mb-1">Localização Real</label>
+                    <label class="text-[10px] text-slate-400 block mb-1 font-semibold uppercase">Localização Geográfica</label>
                     <select id="input-location" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs focus:outline-none focus:border-pink-500 text-slate-200">
                         <option value="São Paulo, SP (Jardins)">São Paulo, SP (Jardins)</option>
                         <option value="Rio de Janeiro, RJ (Ipanema)">Rio de Janeiro, RJ (Ipanema)</option>
                         <option value="Florianópolis, SC (Jurerê)">Florianópolis, SC (Jurerê)</option>
-                        <option value="Miami, USA (South Beach)">Miami, USA</option>
+                        <option value="Miami, USA (South Beach)">Miami, USA (South Beach)</option>
+                        <option value="Paris, França (Le Marais)">Paris, França (Le Marais)</option>
                     </select>
                 </div>
             </div>
 
-            <button onclick="gerarPerfilCompleto()" id="btn-gerar" class="w-full bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white font-semibold py-3 rounded-xl shadow-lg shadow-pink-600/25 transition-all text-xs flex items-center justify-center gap-2 active:scale-[0.98]">
-                <i class="fa-solid fa-wand-magic-sparkles"></i> Gerar Nova Identidade Completa
-            </button>
-        </div>
-
-        <!-- Botão IA em Tempo Real -->
-        <div class="relative">
-            <button onclick="simularIAGanhaVida()" id="btn-ia-vida" class="w-full ai-glow bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 hover:brightness-110 text-white font-bold py-3.5 px-4 rounded-2xl shadow-xl transition-all flex items-center justify-center gap-2.5 text-sm active:scale-[0.98]">
-                <i class="fa-solid fa-fingerprint text-lg"></i>
-                <span>Gerar Selfie do Momento & Humor IA</span>
-            </button>
-            <div id="ai-status-box" class="hidden mt-2 p-3 bg-slate-900/90 border border-pink-500/30 rounded-xl text-center text-xs text-pink-300 animate-pulse">
-                <i class="fa-solid fa-microchip mr-1"></i> <span id="ai-status-text">Sintetizando expressões faciais e luz ambiente...</span>
+            <div class="grid grid-cols-2 gap-2 pt-1">
+                <button onclick="gerarPerfilCompleto()" class="bg-gradient-to-r from-pink-600 to-purple-600 hover:brightness-110 text-white font-bold py-3 rounded-xl shadow-lg shadow-pink-600/20 transition-all text-xs flex items-center justify-center gap-1.5 active:scale-95">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Nova Identidade
+                </button>
+                <button onclick="forcarGeracaoSelfieReal()" class="bg-gradient-to-r from-purple-600 to-indigo-600 hover:brightness-110 text-white font-bold py-3 rounded-xl shadow-lg shadow-purple-600/20 transition-all text-xs flex items-center justify-center gap-1.5 active:scale-95">
+                    <i class="fa-solid fa-camera-rotate"></i> Gerar Selfie IA
+                </button>
             </div>
         </div>
 
-        <!-- Preview do Perfil Gerado -->
+        <!-- Preview do Perfil -->
         <div id="preview-container" class="space-y-4">
             <!-- Card Instagram -->
-            <div id="card-instagram" class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl transition-all">
-                <div class="p-3 border-b border-slate-800 flex justify-between items-center">
-                    <span id="insta-username" class="font-bold text-xs tracking-tight text-slate-100">@clara.vargas</span>
+            <div id="card-instagram" class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl transition-all">
+                <div class="p-3 border-b border-slate-800 flex justify-between items-center bg-slate-950/40">
+                    <div class="flex items-center gap-2">
+                        <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-yellow-500 to-pink-500 p-[2px]">
+                            <img id="insta-avatar-mini" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover rounded-full">
+                        </div>
+                        <span id="insta-username" class="font-bold text-xs tracking-tight text-slate-100">@clara.vargas</span>
+                    </div>
                     <i class="fa-solid fa-ellipsis text-slate-400 text-xs"></i>
                 </div>
-                <!-- Foto Principal -->
+                
+                <!-- Foto Principal Realista -->
                 <div class="relative aspect-square bg-slate-950 overflow-hidden">
-                    <img id="insta-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-all duration-500" alt="Selfie">
+                    <img id="insta-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover transition-all duration-700" alt="Selfie Real">
                     <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[11px] text-slate-200 border border-white/10 flex items-center gap-1.5">
                         <i class="fa-solid fa-location-dot text-pink-500"></i> <span id="insta-loc-tag">Jardins, SP</span>
                     </div>
+                    <div class="absolute top-3 right-3 bg-purple-950/80 backdrop-blur-md px-2.5 py-1 rounded-lg text-[10px] text-purple-200 border border-purple-500/30 font-mono">
+                        Fotorrealismo v4.2
+                    </div>
                 </div>
-                <!-- Humor em tempo real widget -->
-                <div class="px-4 py-2 bg-slate-950/60 border-t border-slate-800/60 flex items-center gap-2">
-                    <span class="text-sm" id="insta-emoji-humor">☕</span>
-                    <p class="text-[11px] text-slate-300 italic truncate" id="insta-humor-text">"Tomando um espresso duplo e pensando nos projetos da semana."</p>
-                </div>
+
                 <!-- Bio & Info -->
-                <div class="p-4 space-y-2">
-                    <div class="flex items-center gap-4 text-[11px] font-semibold text-slate-300">
-                        <div><span id="insta-posts" class="text-white">48</span> posts</div>
-                        <div><span id="insta-followers" class="text-white">12.4K</span> seguidores</div>
-                        <div><span id="insta-following" class="text-white">430</span> seguindo</div>
+                <div class="p-4 space-y-2.5">
+                    <div class="flex items-center justify-around text-center text-xs border-b border-slate-800/80 pb-2.5">
+                        <div><span id="insta-posts" class="font-bold text-white block text-sm">54</span><span class="text-[10px] text-slate-400">posts</span></div>
+                        <div><span id="insta-followers" class="font-bold text-white block text-sm">14.2K</span><span class="text-[10px] text-slate-400">seguidores</span></div>
+                        <div><span id="insta-following" class="font-bold text-white block text-sm">480</span><span class="text-[10px] text-slate-400">seguindo</span></div>
                     </div>
                     <div>
                         <p id="insta-name" class="font-bold text-xs text-white">Clara Vargas</p>
-                        <p id="insta-bio" class="text-xs text-slate-300 mt-1 whitespace-pre-line">Arquiteta & Fotógrafa 📸<br>Vivendo entre SP e o litoral 🌊</p>
+                        <p id="insta-bio" class="text-xs text-slate-300 mt-1 whitespace-pre-line leading-relaxed">Arquiteta & Designer 📐<br>Vivendo entre SP e o mundo ✈️<br>Café espresso e luz natural.</p>
                     </div>
                 </div>
             </div>
 
             <!-- Card Tinder (Oculto por padrão) -->
-            <div id="card-tinder" class="hidden bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl transition-all">
+            <div id="card-tinder" class="hidden bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl transition-all">
                 <div class="relative aspect-[3/4] bg-slate-950">
-                    <img id="tinder-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-all duration-500" alt="Tinder Foto">
+                    <img id="tinder-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover transition-all duration-700" alt="Tinder Foto">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-95"></div>
-                    <div class="absolute bottom-4 left-4 right-4 text-white space-y-1.5">
+                    <div class="absolute bottom-4 left-4 right-4 text-white space-y-2">
                         <div class="flex items-baseline gap-2">
-                            <h3 id="tinder-name-age" class="text-xl font-black">Clara, 25</h3>
-                            <span class="text-emerald-400 text-[10px] font-semibold bg-emerald-500/20 px-2 py-0.5 rounded-full border border-emerald-500/30">Ativa agora</span>
+                            <h3 id="tinder-name-age" class="text-2xl font-black">Clara, 25</h3>
+                            <span class="text-emerald-400 text-[10px] font-semibold bg-emerald-500/20 px-2 py-0.5 rounded-full border border-emerald-500/30">Online agora</span>
                         </div>
-                        <p id="tinder-distance" class="text-[11px] text-slate-300 flex items-center gap-1">
+                        <p id="tinder-distance" class="text-xs text-slate-300 flex items-center gap-1">
                             <i class="fa-solid fa-location-dot text-pink-500"></i> a 3 km de distância
                         </p>
-                        <!-- Humor Tinder -->
-                        <div class="bg-pink-950/40 border border-pink-500/30 px-3 py-1.5 rounded-xl text-[11px] text-pink-200 flex items-center gap-2">
-                            <span id="tinder-emoji-humor">✨</span>
-                            <span id="tinder-humor-text" class="italic">"Com vontade de comer um bom sushi hoje à noite."</span>
-                        </div>
-                        <p id="tinder-bio" class="text-[11px] text-slate-200 bg-black/40 backdrop-blur-md p-2.5 rounded-xl border border-white/10">
-                            Procurando alguém para tomar um bom vinho e conversar sobre arte. 🍷✨
+                        <p id="tinder-bio" class="text-xs text-slate-200 bg-black/50 backdrop-blur-md p-3 rounded-xl border border-white/10 leading-relaxed">
+                            Procurando alguém para tomar um bom vinho e conversar sobre arte, viagens e arquitetura urbana. 🍷✨
                         </p>
                     </div>
                 </div>
@@ -141,81 +151,84 @@
 
         <!-- Botão de Cópia -->
         <button onclick="copiarDadosPerfil()" class="w-full bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-200 font-medium py-3 px-4 rounded-xl text-xs flex items-center justify-center gap-2 transition-all">
-            <i class="fa-solid fa-copy text-purple-500"></i> Copiar Dados Completos & Bio
+            <i class="fa-solid fa-copy text-purple-500"></i> Copiar Dados Completos & Biografia
         </button>
 
     </main>
 
-    <!-- Script Lógico -->
+    <!-- Script de IA Conectada e Tempo Real -->
     <script>
         let currentPlatform = 'instagram';
 
-        const bancosDados = {
+        const bancoIACompleto = {
             mulher: {
-                nomes: ["Clara Vargas", "Helena Rossi", "Sofia Mendes", "Beatriz Lima", "Valentina Cruz"],
-                handles: ["@clara.vargas", "@helena.rossi", "@sofia.mendes", "@bia.lima", "@valentinacruz"],
+                nomes: ["Clara Vargas", "Helena Rossi", "Sofia Mendes", "Beatriz Lima", "Valentina Cruz", "Isabella Dornelles", "Manuela Antunes"],
+                handles: ["@clara.vargas", "@helena.rossi", "@sofia.mendes", "@bia.lima", "@valentinacruz", "@isa.dornelles", "@manu.antunes"],
                 fotos: [
-                    "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80",
-                    "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80",
-                    "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80",
-                    "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80",
-                    "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=800&q=80"
+                    "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=1000&q=80"
                 ],
-                humores: [
-                    { emoji: "☕", texto: "Tomando um espresso duplo e planejando o roteiro da viagem." },
-                    { emoji: "🎧", texto: "Ouvindo indie pop e curtindo a brisa da tarde na janela." },
-                    { emoji: "🍷", texto: "Pensando em qual restaurante escolher para jantar hoje." },
-                    { emoji: "📚", texto: "Lendo um livro de arquitetura e aproveitando o silêncio." },
-                    { emoji: "✨", texto: "Com aquela energia boa de sexta-feira mesmo sendo quarta." }
+                pensamentos: [
+                    "Calculando ângulo de incidência solar para a selfie no café...",
+                    "Revisando mensagens não lidas no direct e simulando tom amigável...",
+                    "Atualizando status biológico: nível de cafeína ideal atingido.",
+                    "Planejando postagem nos stories sobre o pôr do sol na locação atual.",
+                    "Sintetizando novas conexões neurais baseadas nas preferências do feed."
                 ],
                 biosInsta: [
-                    "Arquiteta & Designer 📐\nVivendo entre SP e o mundo ✈️\nCafé, arte e arquitetura.",
-                    "Digital Creator & Lifestyle 🌴\nCompartilhando momentos reais.",
+                    "Arquiteta & Designer 📐\nVivendo entre SP e o mundo ✈️\nCafé espresso e boa luz.",
+                    "Digital Creator & Lifestyle 🌴\nCompartilhando momentos reais.\n👇 Novo vlog no ar!",
                     "Médica residente 🩺✨\nAventureira nos finais de semana 🏔️"
                 ],
                 biosTinder: [
                     "Curto um bom papo, drinks autorais e playlists indies. Me leve para conhecer um lugar novo! 🥂",
-                    "Apaixonada por cachorros, praia e viagens espontâneas. ✨",
-                    "Procurando conexões reais e leves. Vamos tomar um café? ☕"
+                    "Apaixonada por cachorros, praia e viagens espontâneas. Se você sabe rir de si mesmo, ganhou pontos. ✨",
+                    "Procurando conexões reais e leves. Vamos tomar um café e ver onde dá? ☕"
                 ]
             },
             homem: {
-                nomes: ["Lucas Siqueira", "Matheus Ribeiro", "Gabriel Duarte", "Rafael Moreira"],
-                handles: ["@lucas.siqueira", "@matheus.rib", "@gabriel.duarte", "@rafa.moreira"],
+                nomes: ["Lucas Siqueira", "Matheus Ribeiro", "Gabriel Duarte", "Rafael Moreira", "Bruno Castelo", "Felipe Sampaio"],
+                handles: ["@lucas.siqueira", "@matheus.rib", "@gabriel.duarte", "@rafa.moreira", "@bruno.castelo", "@felipe.sampaio"],
                 fotos: [
-                    "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80",
-                    "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=800&q=80",
-                    "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80",
-                    "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80"
+                    "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=1000&q=80"
                 ],
-                humores: [
-                    { emoji: "💻", texto: "Finalizando códigos e codespaces com uma playlist de lofi." },
-                    { emoji: "🏋️‍♂️", texto: "Acabando o treino do dia e focado nos objetivos." },
-                    { emoji: "🌮", texto: "Procurando o melhor burrito da cidade para o almoço." },
-                    { emoji: "🎸", texto: "Testando riffs novos na guitarra depois do expediente." }
+                pensamentos: [
+                    "Otimizando algoritmos de código e testando novas dependências...",
+                    "Monitorando o mercado financeiro e programando o treino na academia.",
+                    "Ajustando balanço de branco para a foto corporativa do dia.",
+                    "Pensando em qual playlist tocar no trajeto de volta para casa."
                 ],
                 biosInsta: [
                     "Empresário & Tech Enthusiast 💻\nEsportes ao ar livre e café ☕",
-                    "Fotógrafo & Videomaker 🎥\nCapturando perspectivas únicas.",
+                    "Fotógrafo & Videomaker 🎥\nCapturando perspectivas urbanas.",
                     "Engenheiro Civil 🏗️ | Crossfit & Churrasco 🥩"
                 ],
                 biosTinder: [
                     "Curto cozinhar, fim de semana na praia e boa música ao vivo. Qual sua pedida?",
                     "Em busca de boas conversas, risadas e novas parcerias para viajar. 🌍",
-                    "Praticante de beach tennis e fã de cerveja artesanal."
+                    "Praticante de beach tennis e fã de cerveja artesanal. Bora marcar algo?"
                 ]
             },
             alternativo: {
-                nomes: ["Luna Vianna", "Kaelen Stark", "Ariel Moon"],
-                handles: ["@lunavianna", "@kaelen.art", "@ariel.moon"],
+                nomes: ["Luna Vianna", "Kaelen Stark", "Ariel Moon", "Zoe Alencar"],
+                handles: ["@lunavianna", "@kaelen.art", "@ariel.moon", "@zoe.alencar"],
                 fotos: [
-                    "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=800&q=80",
-                    "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80"
+                    "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1000&q=80"
                 ],
-                humores: [
-                    { emoji: "🎨", texto: "Misturando tintas a óleo e ouvindo vinil antigo." },
-                    { emoji: "🌙", texto: "Inspirada pela lua cheia escrevendo novos roteiros." },
-                    { emoji: "☕", texto: "Buscando cafés aconchegantes com decoração vintage." }
+                pensamentos: [
+                    "Buscando referências visuais em exposições de arte contemporânea...",
+                    "Misturando tons de tinta a óleo e ouvindo vinis antigos na vitrola.",
+                    "Escrevendo versos para o próximo roteiro de curta-metragem independente."
                 ],
                 biosInsta: [
                     "Tatuadora & Ilustradora 🎨\nUniverso alternativo e vinis 🎶",
@@ -228,6 +241,19 @@
             }
         };
 
+        // Relógio e Pensamento Automático a Cada Segundo
+        setInterval(() => {
+            const agora = new Date();
+            document.getElementById('relogio-ia').innerText = agora.toLocaleTimeString();
+        }, 1000);
+
+        setInterval(() => {
+            const genero = document.getElementById('input-gender').value;
+            const listaPensamentos = bancoIACompleto[genero].pensamentos;
+            const pensamentoAleatorio = listaPensamentos[Math.floor(Math.random() * listaPensamentos.length)];
+            document.getElementById('neural-thought').innerText = `"${pensamentoAleatorio}"`;
+        }, 6000);
+
         function switchPlatform(platform) {
             currentPlatform = platform;
             const btnInsta = document.getElementById('tab-insta');
@@ -236,13 +262,13 @@
             const cardTinder = document.getElementById('card-tinder');
 
             if (platform === 'instagram') {
-                btnInsta.className = "py-2.5 rounded-xl text-sm font-semibold transition-all bg-pink-600 text-white shadow-lg shadow-pink-600/30 flex items-center justify-center gap-2";
-                btnTinder.className = "py-2.5 rounded-xl text-sm font-semibold transition-all text-slate-400 hover:text-white flex items-center justify-center gap-2";
+                btnInsta.className = "py-2.5 rounded-xl text-xs font-bold transition-all bg-pink-600 text-white shadow-lg shadow-pink-600/30 flex items-center justify-center gap-2";
+                btnTinder.className = "py-2.5 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white flex items-center justify-center gap-2";
                 cardInsta.classList.remove('hidden');
                 cardTinder.classList.add('hidden');
             } else {
-                btnTinder.className = "py-2.5 rounded-xl text-sm font-semibold transition-all bg-pink-600 text-white shadow-lg shadow-pink-600/30 flex items-center justify-center gap-2";
-                btnInsta.className = "py-2.5 rounded-xl text-sm font-semibold transition-all text-slate-400 hover:text-white flex items-center justify-center gap-2";
+                btnTinder.className = "py-2.5 rounded-xl text-xs font-bold transition-all bg-pink-600 text-white shadow-lg shadow-pink-600/30 flex items-center justify-center gap-2";
+                btnInsta.className = "py-2.5 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white flex items-center justify-center gap-2";
                 cardTinder.classList.remove('hidden');
                 cardInsta.classList.add('hidden');
             }
@@ -251,91 +277,55 @@
         function gerarPerfilCompleto() {
             const genero = document.getElementById('input-gender').value;
             const localizacao = document.getElementById('input-location').value;
-            const dados = bancosDados[genero];
+            const dados = bancoIACompleto[genero];
 
-            const nomeAleatorio = dados.nomes[Math.floor(Math.random() * dados.nomes.length)];
-            const handleAleatorio = dados.handles[Math.floor(Math.random() * dados.handles.length)];
-            const fotoAleatoria = dados.fotos[Math.floor(Math.random() * dados.fotos.length)];
-            const bioInstaAleatoria = dados.biosInsta[Math.floor(Math.random() * dados.biosInsta.length)];
-            const bioTinderAleatoria = dados.biosTinder[Math.floor(Math.random() * dados.biosTinder.length)];
-            const humorAleatorio = dados.humores[Math.floor(Math.random() * dados.humores.length)];
-            const idadeAleatoria = Math.floor(Math.random() * 8) + 22;
+            const nome = dados.nomes[Math.floor(Math.random() * dados.nomes.length)];
+            const handle = dados.handles[Math.floor(Math.random() * dados.handles.length)];
+            const foto = dados.fotos[Math.floor(Math.random() * dados.fotos.length)];
+            const bioInsta = dados.biosInsta[Math.floor(Math.random() * dados.biosInsta.length)];
+            const bioTinder = dados.biosTinder[Math.floor(Math.random() * dados.biosTinder.length)];
+            const idade = Math.floor(Math.random() * 8) + 22;
 
-            document.getElementById('insta-username').innerText = handleAleatorio;
-            document.getElementById('insta-name').innerText = nomeAleatorio;
-            document.getElementById('insta-bio').innerText = bioInstaAleatoria;
-            document.getElementById('insta-img').src = fotoAleatoria;
+            document.getElementById('insta-username').innerText = handle;
+            document.getElementById('insta-name').innerText = nome;
+            document.getElementById('insta-bio').innerText = bioInsta;
+            document.getElementById('insta-img').src = foto;
+            document.getElementById('insta-avatar-mini').src = foto;
             document.getElementById('insta-loc-tag').innerText = localizacao.split(',')[0];
-            
-            document.getElementById('tinder-name-age').innerText = `${nomeAleatorio.split(' ')[0]}, ${idadeAleatoria}`;
-            document.getElementById('tinder-bio').innerText = bioTinderAleatoria;
-            document.getElementById('tinder-img').src = fotoAleatoria;
-            document.getElementById('tinder-distance').innerHTML = `<i class="fa-solid fa-location-dot text-pink-500"></i> perto de ${localizacao}`;
 
-            document.getElementById('insta-emoji-humor').innerText = humorAleatorio.emoji;
-            document.getElementById('insta-humor-text').innerText = `"${humorAleatorio.texto}"`;
-            document.getElementById('tinder-emoji-humor').innerText = humorAleatorio.emoji;
-            document.getElementById('tinder-humor-text').innerText = `"${humorAleatorio.texto}"`;
-
-            const btn = document.getElementById('btn-gerar');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = `<i class="fa-solid fa-check"></i> Identidade Gerada!`;
-            setTimeout(() => { btn.innerHTML = originalText; }, 1500);
+            document.getElementById('tinder-name-age').innerText = `${nome.split(' ')[0]}, ${idade}`;
+            document.getElementById('tinder-bio').innerText = bioTinder;
+            document.getElementById('tinder-img').src = foto;
+            document.getElementById('tinder-distance').innerHTML = `<i class="fa-solid fa-location-dot text-pink-500"></i> a ${Math.floor(Math.random()*5)+1} km de ${localizacao.split(',')[0]}`;
         }
 
-        function simularIAGanhaVida() {
+        function forcarGeracaoSelfieReal() {
             const genero = document.getElementById('input-gender').value;
-            const dados = bancosDados[genero];
-            const statusBox = document.getElementById('ai-status-box');
-            const statusText = document.getElementById('ai-status-text');
-            const btnIa = document.getElementById('btn-ia-vida');
+            const fotos = bancoIACompleto[genero].fotos;
+            const novaFoto = fotos[Math.floor(Math.random() * fotos.length)];
+            
+            // Efeito visual de transição neural
+            const imgInsta = document.getElementById('insta-img');
+            const imgTinder = document.getElementById('tinder-img');
+            imgInsta.style.opacity = '0.2';
+            imgTinder.style.opacity = '0.2';
 
-            btnIa.disabled = true;
-            statusBox.classList.remove('hidden');
-
-            const etapas = [
-                "Acessando sensores neurais de ambiente...",
-                "Calculando iluminação natural da localização...",
-                "Sintetizando nova expressão facial e micro-sorriso...",
-                "Renderizando selfie fotorrealista em alta resolução...",
-                "Atualizando status emocional e humor atual..."
-            ];
-
-            let step = 0;
-            const intervalo = setInterval(() => {
-                if (step < etapas.length) {
-                    statusText.innerText = etapas[step];
-                    step++;
-                } else {
-                    clearInterval(intervalo);
-                    
-                    const novaFoto = dados.fotos[Math.floor(Math.random() * dados.fotos.length)];
-                    const novoHumor = dados.humores[Math.floor(Math.random() * dados.humores.length)];
-
-                    document.getElementById('insta-img').src = novaFoto;
-                    document.getElementById('tinder-img').src = novaFoto;
-
-                    document.getElementById('insta-emoji-humor').innerText = novoHumor.emoji;
-                    document.getElementById('insta-humor-text').innerText = `"${novoHumor.texto}"`;
-                    document.getElementById('tinder-emoji-humor').innerText = novoHumor.emoji;
-                    document.getElementById('tinder-humor-text').innerText = `"${novoHumor.texto}"`;
-
-                    statusBox.classList.add('hidden');
-                    btnIa.disabled = false;
-                }
-            }, 500);
+            setTimeout(() => {
+                imgInsta.src = novaFoto;
+                imgTinder.src = novaFoto;
+                document.getElementById('insta-avatar-mini').src = novaFoto;
+                imgInsta.style.opacity = '1';
+                imgTinder.style.opacity = '1';
+            }, 300);
         }
 
         function copiarDadosPerfil() {
             const nome = document.getElementById('insta-name').innerText;
-            const humor = document.getElementById('insta-humor-text').innerText;
             const bio = currentPlatform === 'instagram' ? document.getElementById('insta-bio').innerText : document.getElementById('tinder-bio').innerText;
-            const textoCopia = `Nome: ${nome}\nHumor Atual: ${humor}\nBio (${currentPlatform.toUpperCase()}):\n${bio}`;
+            const textoCopia = `Nome: ${nome}\nPerfil (${currentPlatform.toUpperCase()}):\n${bio}`;
             
             navigator.clipboard.writeText(textoCopia).then(() => {
-                alert("Dados, humor e biografia copiados com sucesso!");
-            }).catch(err => {
-                console.error('Erro ao copiar', err);
+                alert("Identidade e biografia copiadas com sucesso!");
             });
         }
     </script>
